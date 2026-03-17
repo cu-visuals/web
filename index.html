@@ -1,0 +1,160 @@
+<!DOCTYPE html></p>
+<p class="p1"><html lang="de"></p>
+<p class="p1"><head></p>
+<p class="p1"><span class="Apple-converted-space">  </span><meta charset="UTF-8" /></p>
+<p class="p1"><span class="Apple-converted-space">  </span><meta name="viewport" content="width=device-width, initial-scale=1.0"/></p>
+<p class="p1"><span class="Apple-converted-space">  </span><title>CU VISUALS • Cedric Unger</title></p>
+<p class="p1"><span class="Apple-converted-space">  </span><script src="https://cdn.tailwindcss.com">
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('hidden');
+}
+</script>
+</p>
+<p class="p1"><span class="Apple-converted-space">  </span><style></p>
+<p class="p1"><span class="Apple-converted-space">    </span>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>:root { --neon: #00f3ff; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body { font-family: 'Inter', system-ui, sans-serif; background: #ffffff; color: #111827; color: #e0e0e0; scroll-behavior: smooth; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.logo-font { font-family: 'Space Grotesk', sans-serif; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.neon-text { text-shadow: 0 0 15px var(--neon), 0 0 30px var(--neon), 0 0 60px var(--neon); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-bg { background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat fixed; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.glass { background: rgba(255,255,255,0.7); backdrop-filter: blur(20px); border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }</p>
+<p class="p1"><span class="Apple-converted-space">  </span></style></p>
+<p class="p1"></head></p>
+<p class="p1"><body></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span><!-- NAV (Rolex-Style) --></p>
+<p class="p1"><span class="Apple-converted-space">  </span><nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-zinc-800 py-5"></p>
+<p class="p1"><span class="Apple-converted-space">    </span><div class="max-w-7xl mx-auto px-6 flex justify-between items-center"></p>
+<p class="p1"><span class="Apple-converted-space">      </span><a href="#" class="flex items-center gap-3"></p>
+<p class="p1"><span class="Apple-converted-space">        </span><div class="w-11 h-11 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-2xl flex items-center justify-center text-3xl font-black logo-font neon-text">CU</div></p>
+<p class="p1"><span class="Apple-converted-space">        </span><span class="text-2xl font-bold tracking-tighter logo-font text-[#00f3ff]">CU VISUALS</span></p>
+<p class="p1"><span class="Apple-converted-space">      </span></a></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span><div class="hidden md:flex gap-10 text-sm font-medium uppercase tracking-widest text-gray-900"></p>
+<p class="p1"><span class="Apple-converted-space">        </span><a href="#leistungen" class="text-gray-900 hover:text-[#00f3ff] transition">Leistungen</a></p>
+<p class="p1"><span class="Apple-converted-space">        </span><a href="#referenzen" class="text-gray-900 hover:text-[#00f3ff] transition">Referenzen</a></p>
+<p class="p1"><span class="Apple-converted-space">        </span><a href="#preise" class="text-gray-900 hover:text-[#00f3ff] transition">Preise</a></p>
+<p class="p1"><span class="Apple-converted-space">        </span><a href="#story" class="text-gray-900 hover:text-[#00f3ff] transition">Die Story</a></p>
+<p class="p1"><span class="Apple-converted-space">      </span></div></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span><a href="#buchung" class="bg-[#00cfe8] text-gray-900 shadow-lg hover:scale-105 transition-all duration-300 px-10 py-4 rounded-2xl font-semibold whitespace-nowrap hover:bg-white transition">JETZT BUCHEN</a></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span><button id="hamburger" class="md:hidden text-3xl">☰</button></p>
+<p class="p1"><span class="Apple-converted-space">    </span></div></p>
+<p class="p1"><span class="Apple-converted-space">  </span></nav>
+<div id="mobileMenu" class="hidden fixed top-0 left-0 w-full h-full bg-white z-50 flex flex-col items-center justify-center gap-10 text-2xl text-[#00f3ff]">
+  <a href="#leistungen" onclick="toggleMenu()">Leistungen</a>
+  <a href="#referenzen" onclick="toggleMenu()">Referenzen</a>
+  <a href="#preise" onclick="toggleMenu()">Preise</a>
+  <a href="#story" onclick="toggleMenu()">Story</a>
+</div>
+</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span><!-- HERO (Rolex-Style) --></p>
+<p class="p1"><span class="Apple-converted-space">  </span><header class="hero-bg min-h-screen flex items-center"></p>
+<p class="p1"><span class="Apple-converted-space">    </span><div class="max-w-5xl mx-auto px-6 text-center"></p>
+<p class="p1"><span class="Apple-converted-space">      </span><h1 class="logo-font text-[170px] md:text-[260px] font-black tracking-[-15px] leading-none text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 neon-text">CU</h1></p>
+<p class="p1"><span class="Apple-converted-space">      </span><div class="text-6xl md:text-7xl font-bold tracking-widest -mt-8 text-gray-900">VISUALS</div></p>
+<p class="p1"><span class="Apple-converted-space">      </span><p class="mt-8 text-3xl text-cyan-200">Cedric Unger</p></p>
+<p class="p1"><span class="Apple-converted-space">      </span><p class="text-xl text-gray-700 mt-3">Foto- &amp; Videograf</p></p>
+<p class="p1"><span class="Apple-converted-space">      </span><p class="mt-12 max-w-md mx-auto text-2xl font-light">where moments become cinematic</p></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span><div class="mt-20 flex flex-col sm:flex-row gap-6 justify-center"></p>
+<p class="p1"><span class="Apple-converted-space">        </span><a href="#buchung" class="bg-[#00cfe8] text-gray-900 shadow-lg hover:scale-105 transition-all duration-300 px-14 py-6 rounded-3xl text-xl font-semibold">TERMIN BUCHEN</a></p>
+<p class="p1"><span class="Apple-converted-space">        </span><a href="#referenzen" class="border border-cyan-400 text-cyan-400 px-14 py-6 rounded-3xl text-xl hover:bg-cyan-400 hover:text-gray-900">Referenzen</a></p>
+<p class="p1"><span class="Apple-converted-space">      </span></div></p>
+<p class="p1"><span class="Apple-converted-space">    </span></div></p>
+<p class="p1"><span class="Apple-converted-space">  </span></header></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span><!-- LEISTUNGEN --></p>
+<p class="p1"><span class="Apple-converted-space">  </span><section id="leistungen" class="py-28 bg-white"></p>
+<p class="p1"><span class="Apple-converted-space">    </span><div class="max-w-7xl mx-auto px-6"></p>
+<p class="p1"><span class="Apple-converted-space">      </span><h2 class="text-center text-5xl font-bold mb-16">Entdecke die Leistungen</h2></p>
+<p class="p1"><span class="Apple-converted-space">      </span><div class="grid md:grid-cols-3 gap-8"></p>
+<p class="p1"><span class="Apple-converted-space">        </span><div class="glass p-10 rounded-3xl text-center"><div class="text-7xl mb-6">📸</div><h3 class="text-2xl font-semibold">Portrait &amp; Lifestyle</h3></div></p>
+<p class="p1"><span class="Apple-converted-space">        </span><div class="glass p-10 rounded-3xl text-center"><div class="text-7xl mb-6">💒</div><h3 class="text-2xl font-semibold">Hochzeit &amp; Events</h3></div></p>
+<p class="p1"><span class="Apple-converted-space">        </span><div class="glass p-10 rounded-3xl text-center"><div class="text-7xl mb-6">🎥</div><h3 class="text-2xl font-semibold">Reels &amp; Cinematic Film</h3></div></p>
+<p class="p1"><span class="Apple-converted-space">      </span></div></p>
+<p class="p1"><span class="Apple-converted-space">    </span></div></p>
+<p class="p1"><span class="Apple-converted-space">  </span></section></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span><!-- REFERENZEN --></p>
+<p class="p1"><span class="Apple-converted-space">  </span><section id="referenzen" class="py-28 bg-gray-50"></p>
+<p class="p1"><span class="Apple-converted-space">    </span><div class="max-w-7xl mx-auto px-6"></p>
+<p class="p1"><span class="Apple-converted-space">      </span><h2 class="text-center text-5xl font-bold mb-16">Ausgewählte Momente</h2></p>
+<p class="p1"><span class="Apple-converted-space">      </span><div class="grid md:grid-cols-3 gap-8"></p>
+<p class="p1"><span class="Apple-converted-space">        </span><div class="overflow-hidden rounded-3xl"><img src="https://picsum.photos/id/1015/800/600" class="w-full h-96 object-cover hover:scale-110 transition"></div></p>
+<p class="p1"><span class="Apple-converted-space">        </span><div class="overflow-hidden rounded-3xl"><img src="https://picsum.photos/id/201/800/600" class="w-full h-96 object-cover hover:scale-110 transition"></div></p>
+<p class="p1"><span class="Apple-converted-space">        </span><div class="overflow-hidden rounded-3xl"><img src="https://picsum.photos/id/301/800/600" class="w-full h-96 object-cover hover:scale-110 transition"></div></p>
+<p class="p1"><span class="Apple-converted-space">      </span></div></p>
+<p class="p1"><span class="Apple-converted-space">    </span></div></p>
+<p class="p1"><span class="Apple-converted-space">  </span></section></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span><!-- PREISE --></p>
+<p class="p1"><span class="Apple-converted-space">  </span><section id="preise" class="py-28 bg-white"></p>
+<p class="p1"><span class="Apple-converted-space">    </span><div class="max-w-7xl mx-auto px-6"></p>
+<p class="p1"><span class="Apple-converted-space">      </span><h2 class="text-center text-5xl font-bold mb-16">Preise 2026</h2></p>
+<p class="p1"><span class="Apple-converted-space">      </span><div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto"></p>
+<p class="p1"><span class="Apple-converted-space">        </span><div class="glass p-10 rounded-3xl text-center"><div class="text-cyan-400 text-sm">STARTER</div><div class="text-6xl font-black my-4">149 €</div><p>Portrait-Shooting</p></div></p>
+<p class="p1"><span class="Apple-converted-space">        </span><div class="glass p-10 rounded-3xl text-center border-2 border-cyan-400"><div class="text-cyan-400 text-sm">PREMIUM</div><div class="text-6xl font-black my-4">399 €</div><p>Paar- oder Lifestyle</p></div></p>
+<p class="p1"><span class="Apple-converted-space">        </span><div class="glass p-10 rounded-3xl text-center"><div class="text-cyan-400 text-sm">CINEMATIC</div><div class="text-6xl font-black my-4">899 €</div><p>Hochzeit / Event</p></div></p>
+<p class="p1"><span class="Apple-converted-space">      </span></div></p>
+<p class="p1"><span class="Apple-converted-space">    </span></div></p>
+<p class="p1"><span class="Apple-converted-space">  </span></section></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span><!-- STORY --></p>
+<p class="p1"><span class="Apple-converted-space">  </span><section id="story" class="py-28 bg-gray-50"></p>
+<p class="p1"><span class="Apple-converted-space">    </span><div class="max-w-3xl mx-auto px-6 text-center"></p>
+<p class="p1"><span class="Apple-converted-space">      </span><h2 class="text-5xl font-bold mb-12">Die CU VISUALS Story</h2></p>
+<p class="p1"><span class="Apple-converted-space">      </span><div class="glass p-16 rounded-3xl text-xl"></p>
+<p class="p1"><span class="Apple-converted-space">        </span>Seit 2022 fange ich besondere Momente cinematic ein. Jedes Projekt wird wie ein kleiner Kinofilm behandelt.</p>
+<p class="p1"><span class="Apple-converted-space">      </span></div></p>
+<p class="p1"><span class="Apple-converted-space">    </span></div></p>
+<p class="p1"><span class="Apple-converted-space">  </span></section></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span><!-- BUCHEN --></p>
+<p class="p1"><span class="Apple-converted-space">  </span><section id="buchung" class="py-32 bg-white text-center"></p>
+<p class="p1"><span class="Apple-converted-space">    </span><h2 class="text-6xl font-bold mb-8">Bereit für deinen cinematic Moment?</h2></p>
+<p class="p1"><span class="Apple-converted-space">    </span><button onclick="openBookingModal()" class="bg-[#00cfe8] text-gray-900 shadow-lg hover:scale-105 transition-all duration-300 text-3xl font-bold px-20 py-8 rounded-3xl">JETZT BUCHEN</button></p>
+<p class="p1"><span class="Apple-converted-space">  </span></section></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span><!-- FOOTER --></p>
+<p class="p1"><span class="Apple-converted-space">  </span><footer class="bg-white py-12 text-center text-sm text-gray-600"></p>
+<p class="p1"><span class="Apple-converted-space">    </span>© 2026 CU VISUALS • Cedric Unger •<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span><a href="mailto:cu.visuals@web.de" class="hover:text-cyan-400">cu.visuals@web.de</a> •<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span><a href="https://www.instagram.com/c.u_visuals" target="_blank" class="hover:text-cyan-400">@c.u_visuals</a></p>
+<p class="p1"><span class="Apple-converted-space">  </span></footer></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span><!-- BUCHUNGS MODAL --></p>
+<p class="p1"><span class="Apple-converted-space">  </span><div id="modal" class="hidden fixed inset-0 bg-white/90 z-[9999] flex items-center justify-center"></p>
+<p class="p1"><span class="Apple-converted-space">    </span><div class="glass max-w-lg w-full mx-4 rounded-3xl p-10"></p>
+<p class="p1"><span class="Apple-converted-space">      </span><h3 class="text-3xl font-bold mb-8">Termin buchen</h3></p>
+<p class="p1"><span class="Apple-converted-space">      </span><input type="text" placeholder="Name" class="w-full mb-4 bg-zinc-900 p-5 rounded-2xl"></p>
+<p class="p1"><span class="Apple-converted-space">      </span><input type="email" placeholder="E-Mail" class="w-full mb-4 bg-zinc-900 p-5 rounded-2xl"></p>
+<p class="p1"><span class="Apple-converted-space">      </span><select class="w-full mb-4 bg-zinc-900 p-5 rounded-2xl"><option>Starter 149 €</option><option>Premium 399 €</option><option>Cinematic 899 €</option></select></p>
+<p class="p1"><span class="Apple-converted-space">      </span><button onclick="submitForm()" class="w-full bg-[#00cfe8] text-gray-900 shadow-lg hover:scale-105 transition-all duration-300 py-6 rounded-3xl text-xl">Anfrage absenden</button></p>
+<p class="p1"><span class="Apple-converted-space">    </span></div></p>
+<p class="p1"><span class="Apple-converted-space">  </span></div></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span><script></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Hamburger (einfach)</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('hamburger').addEventListener('click', () => toggleMenu());</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function openBookingModal() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById('modal').classList.toggle('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// removed old fake submit
+function submitForm() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>alert('✅ Anfrage gesendet! Ich melde mich schnellstmöglich.');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById('modal').classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('hidden');
+}
+</script>
+</p>
+<p class="p1"></body></p>
+<p class="p1"></html></p>
+</body>
+</html>
