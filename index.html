@@ -83,13 +83,51 @@
     </div>
   </header>
 
-  <!-- LEISTUNGEN, REFERENZEN, PREISE, STORY, BUCHEN -->
-  <!-- (Deine Abschnitte – unverändert, nur sauberer) -->
-  <section id="leistungen" class="py-28 bg-white">…</section>
-  <section id="referenzen" class="py-28 bg-gray-50">…</section>
-  <section id="preise" class="py-28 bg-white">…</section>
-  <section id="story" class="py-28 bg-gray-50">…</section>
-  <section id="buchung" class="py-32 bg-white text-center">…</section>
+  <!-- LEISTUNGEN -->
+  <section id="leistungen" class="py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-center text-5xl font-bold mb-16">Entdecke die Leistungen</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="glass p-10 rounded-3xl text-center"><div class="text-7xl mb-6">📸</div><h3 class="text-2xl font-semibold">Portrait &amp; Lifestyle</h3></div>
+        <div class="glass p-10 rounded-3xl text-center"><div class="text-7xl mb-6">💒</div><h3 class="text-2xl font-semibold">Hochzeit &amp; Events</h3></div>
+        <div class="glass p-10 rounded-3xl text-center"><div class="text-7xl mb-6">🎥</div><h3 class="text-2xl font-semibold">Reels &amp; Cinematic Film</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REFERENZEN -->
+  <section id="referenzen" class="py-28 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-center text-5xl font-bold mb-16">Ausgewählte Momente</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="overflow-hidden rounded-3xl"><img src="https://picsum.photos/id/1015/800/600" class="w-full h-96 object-cover hover:scale-110 transition"></div>
+        <div class="overflow-hidden rounded-3xl"><img src="https://picsum.photos/id/201/800/600" class="w-full h-96 object-cover hover:scale-110 transition"></div>
+        <div class="overflow-hidden rounded-3xl"><img src="https://picsum.photos/id/301/800/600" class="w-full h-96 object-cover hover:scale-110 transition"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREISE -->
+  <section id="preise" class="py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-center text-5xl font-bold mb-16">Preise 2026</h2>
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div class="glass p-10 rounded-3xl text-center"><div class="text-cyan-400 text-sm">STARTER</div><div class="text-6xl font-black my-4">149 €</div><p>Portrait-Shooting</p></div>
+        <div class="glass p-10 rounded-3xl text-center border-2 border-cyan-400"><div class="text-cyan-400 text-sm">PREMIUM</div><div class="text-6xl font-black my-4">399 €</div><p>Paar- oder Lifestyle</p></div>
+        <div class="glass p-10 rounded-3xl text-center"><div class="text-cyan-400 text-sm">CINEMATIC</div><div class="text-6xl font-black my-4">899 €</div><p>Hochzeit / Event</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section id="story" class="py-28 bg-gray-50">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <h2 class="text-5xl font-bold mb-12">Die CU VISUALS Story</h2>
+      <div class="glass p-16 rounded-3xl text-xl">
+        Seit 2022 fange ich besondere Momente cinematic ein. Jedes Projekt wird wie ein kleiner Kinofilm behandelt.
+      </div>
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <footer class="bg-white py-12 text-center text-sm text-gray-600">
@@ -98,10 +136,17 @@
     <a href="https://www.instagram.com/c.u_visuals" target="_blank">@c.u_visuals</a>
   </footer>
 
-  <!-- BUCHUNGS MODAL -->
+  <!-- BUCHUNGS MODAL mit X-Schließen -->
   <div id="modal" class="hidden fixed inset-0 bg-black/70 z-[9999] flex items-center justify-center p-4">
-    <div class="glass max-w-lg w-full rounded-3xl p-10">
+    <div class="glass max-w-lg w-full rounded-3xl p-10 relative">
+      <!-- X-Schließen Button -->
+      <button onclick="closeModal()" 
+              class="absolute top-6 right-6 text-4xl text-gray-400 hover:text-black transition">
+        ×
+      </button>
+
       <h3 class="text-3xl font-bold mb-6 text-center">Termin anfragen</h3>
+      
       <input id="name" type="text" placeholder="Dein Name" class="w-full mb-4 p-5 rounded-2xl border">
       <input id="email" type="email" placeholder="Deine E-Mail" class="w-full mb-4 p-5 rounded-2xl border">
       <select id="package" class="w-full mb-4 p-5 rounded-2xl border">
@@ -111,7 +156,8 @@
       </select>
       <textarea id="message" placeholder="Nachricht oder Wunschtermin" rows="4" class="w-full p-5 rounded-2xl border"></textarea>
       
-      <button onclick="sendEmail()" class="w-full mt-6 bg-[#00f3ff] text-white py-6 rounded-3xl text-xl font-semibold">
+      <button onclick="sendEmail()" 
+              class="w-full mt-6 bg-[#00f3ff] text-white py-6 rounded-3xl text-xl font-semibold">
         Anfrage per E-Mail senden
       </button>
     </div>
@@ -127,12 +173,17 @@
       document.getElementById('mobileMenu').classList.toggle('hidden');
     }
 
-    // Modal
+    // Modal öffnen
     function openBookingModal() {
       document.getElementById('modal').classList.remove('hidden');
     }
 
-    // E-Mail direkt öffnen
+    // Modal schließen (mit X)
+    function closeModal() {
+      document.getElementById('modal').classList.add('hidden');
+    }
+
+    // E-Mail senden
     function sendEmail() {
       const name = document.getElementById('name').value || 'Unbekannt';
       const email = document.getElementById('email').value || '';
@@ -144,7 +195,7 @@
 
       window.location.href = `mailto:cu.visuals@web.de?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       
-      document.getElementById('modal').classList.add('hidden');
+      closeModal();
     }
   </script>
 </body>
