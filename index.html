@@ -4,8 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>CU VISUALS • Cedric Unger</title>
+
 <script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdn.tailwindcss.com"></script>
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
 
@@ -35,89 +36,42 @@ body {
               url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat fixed;
 }
 
-/* IMAGE EFFECT */
-.img-wrap {
-  position:relative;
-  overflow:hidden;
-  border-radius:20px;
-  cursor:pointer;
-}
+.img-wrap { position:relative; overflow:hidden; border-radius:20px; cursor:pointer; }
+.img-wrap img { width:100%; height:100%; object-fit:cover; transition:0.7s ease; }
+.img-wrap:hover img { transform:scale(1.1); filter:brightness(0.8); }
 
-.img-wrap img {
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:0.7s ease;
-}
+.fade-up { opacity:0; transform:translateY(40px); transition:1s; }
+.fade-up.visible { opacity:1; transform:translateY(0); }
 
-.img-wrap:hover img {
-  transform:scale(1.1);
-  filter:brightness(0.8);
-}
+.parallax { transform: translateY(0); transition: transform 0.2s linear; }
 
-/* FADE */
-.fade-up {
-  opacity:0;
-  transform:translateY(40px);
-  transition:1s;
-}
+#lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); justify-content:center; align-items:center; z-index:9999; }
+#lightbox img { max-width:90%; max-height:90%; }
 
-.fade-up.visible {
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* PARALLAX */
-.parallax {
-  transform: translateY(0);
-  transition: transform 0.2s linear;
-}
-
-/* LIGHTBOX */
-#lightbox {
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.9);
-  justify-content:center;
-  align-items:center;
-  z-index:9999;
-}
-
-#lightbox img {
-  max-width:90%;
-  max-height:90%;
-}
 </style>
 </head>
-<body>
+
+<body id="top">
+
 <!-- NAV -->
 <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b py-5">
   <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-    <div class="flex items-center gap-3">
+    <a href="#top" class="flex items-center gap-3">
       <div class="w-11 h-11 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-2xl flex items-center justify-center text-3xl font-black logo-font">CU</div>
       <span class="text-2xl font-bold tracking-tighter logo-font text-[#00f3ff]">CU VISUALS</span>
+    </a>
+
+    <div class="hidden md:flex gap-10 text-sm uppercase tracking-widest">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#referenzen">Referenzen</a>
+      <a href="#ablauf">Ablauf</a>
+      <a href="#kontakt">Kontakt</a>
     </div>
-<div class="hidden md:flex gap-10 text-sm uppercase tracking-widest">
-  <a href="#leistungen">Leistungen</a>
-  <a href="#referenzen">Referenzen</a>
-  <a href="#story">Story</a>
-</div>
 
-<a onclick="openBookingModal()" class="bg-[#00f3ff] text-white px-10 py-4 rounded-2xl font-semibold cursor-pointer">
-  JETZT BUCHEN
-</a>
-
-<button id="hamburger" class="md:hidden text-4xl">☰</button>
+    <a href="#kontakt" class="bg-[#00f3ff] text-white px-10 py-4 rounded-2xl font-semibold">JETZT BUCHEN</a>
   </div>
 </nav>
-<!-- MOBILE MENU -->
-<div id="mobileMenu" class="hidden fixed inset-0 bg-white z-[999] flex flex-col items-center justify-center gap-10 text-3xl">
-  <a href="#leistungen" onclick="toggleMenu()">Leistungen</a>
-  <a href="#referenzen" onclick="toggleMenu()">Referenzen</a>
-  <a href="#story" onclick="toggleMenu()">Story</a>
-  <a onclick="openBookingModal();toggleMenu()" class="text-[#00f3ff]">Jetzt buchen</a>
-</div>
+
 <!-- HERO -->
 <header class="hero-bg min-h-screen flex items-center justify-center text-center">
   <div>
@@ -126,15 +80,13 @@ body {
     <p class="mt-10 text-2xl text-gray-700">Foto- & Videograf</p>
   </div>
 </header>
-<!-- LEISTUNGEN -->
-<section id="leistungen" class="py-28">
-  <h2 class="text-center font-bold mb-16">Leistungen</h2>
-  <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto px-6">
-    <div class="p-8 border rounded-xl text-center">📸 Fotografie</div>
-    <div class="p-8 border rounded-xl text-center">🎥 Videografie</div>
-    <div class="p-8 border rounded-xl text-center">📱 Content</div>
-  </div>
+
+<!-- TRUST / USP -->
+<section class="py-20 text-center">
+  <h2 class="text-3xl font-bold mb-6">Warum CU VISUALS?</h2>
+  <p class="max-w-2xl mx-auto text-gray-600">Ich helfe Marken & Personen dabei, sich visuell hochwertig zu präsentieren – mit Content, der auffällt und verkauft.</p>
 </section>
+
 <!-- PORTFOLIO -->
 <section id="referenzen" class="py-28 bg-gray-50">
   <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-6">
@@ -145,76 +97,84 @@ body {
     <div class="img-wrap fade-up"><img src="IMG_0124.jpg" class="parallax" onclick="openLightbox(this.src)"></div>
   </div>
 </section>
-<!-- STORY -->
-<section id="story" class="py-28 text-center">
-  <div class="max-w-3xl mx-auto">
-    <h2 class="font-bold mb-10">Die Story</h2>
-    <p>Seit 2022 halte ich Momente cinematic fest.</p>
+
+<!-- ABLAUF (wie Agentur Seiten) -->
+<section id="ablauf" class="py-28">
+  <h2 class="text-center text-3xl font-bold mb-16">So läuft die Zusammenarbeit</h2>
+  <div class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto px-6 text-center">
+    <div>
+      <h3 class="font-bold mb-2">1. Anfrage</h3>
+      <p class="text-gray-600">Du sendest mir deine Anfrage & wir besprechen dein Projekt.</p>
+    </div>
+    <div>
+      <h3 class="font-bold mb-2">2. Produktion</h3>
+      <p class="text-gray-600">Ich setze dein Shooting oder Video professionell um.</p>
+    </div>
+    <div>
+      <h3 class="font-bold mb-2">3. Ergebnis</h3>
+      <p class="text-gray-600">Du bekommst fertigen Content, der Ergebnisse liefert.</p>
+    </div>
   </div>
 </section>
+
+<!-- CTA -->
+<section class="py-20 text-center bg-gray-100">
+  <h2 class="text-3xl font-bold mb-6">Bereit für dein Projekt?</h2>
+  <a href="#kontakt" class="bg-[#00f3ff] text-white px-12 py-5 rounded-2xl">Jetzt anfragen</a>
+</section>
+
+<!-- KONTAKT -->
+<section id="kontakt" class="py-28 text-center">
+  <h2 class="text-3xl font-bold mb-10">Anfrage senden</h2>
+  <div class="max-w-xl mx-auto">
+    <input id="name" placeholder="Name" class="w-full mb-4 p-4 border rounded-xl">
+    <input id="email" placeholder="Email" class="w-full mb-4 p-4 border rounded-xl">
+    <textarea id="msg" placeholder="Dein Projekt..." class="w-full mb-4 p-4 border rounded-xl"></textarea>
+    <button onclick="sendEmail()" class="bg-[#00f3ff] text-white px-10 py-4 rounded-xl">Absenden</button>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer class="py-12 text-center text-sm text-gray-500">
-  © 2026 CU VISUALS • cu.visuals@web.de
+  © 2026 CU VISUALS
 </footer>
+
 <!-- LIGHTBOX -->
 <div id="lightbox" onclick="closeLightbox()">
   <img id="lightbox-img">
 </div>
-<!-- MODAL -->
-<div id="modal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center">
-  <div class="bg-white p-8 rounded-xl w-full max-w-md">
-    <input id="name" placeholder="Name" class="w-full mb-4 p-3 border">
-    <input id="email" placeholder="Email" class="w-full mb-4 p-3 border">
-    <textarea id="msg" placeholder="Nachricht" class="w-full p-3 border"></textarea>
-    <button onclick="sendEmail()" class="w-full mt-4 bg-[#00f3ff] text-white py-3">Senden</button>
-  </div>
-</div>
+
 <script>
 
-// MENU
-document.getElementById('hamburger').onclick = () =>
-  document.getElementById('mobileMenu').classList.toggle('hidden');
-
-function toggleMenu(){
-  document.getElementById('mobileMenu').classList.toggle('hidden');
-}
-
-// MODAL
-function openBookingModal(){
-  document.getElementById('modal').classList.remove('hidden');
-}
-
-// EMAIL
 function sendEmail(){
   let name=document.getElementById('name').value;
+  let email=document.getElementById('email').value;
   let msg=document.getElementById('msg').value;
   window.location.href=`mailto:cu.visuals@web.de?subject=Anfrage ${name}&body=${msg}`;
 }
 
-// LIGHTBOX
 function openLightbox(src){
   document.getElementById('lightbox').style.display='flex';
   document.getElementById('lightbox-img').src=src;
 }
+
 function closeLightbox(){
   document.getElementById('lightbox').style.display='none';
 }
 
-// FADE
 const faders=document.querySelectorAll('.fade-up');
 const obs=new IntersectionObserver(e=>{
-  e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})
+ e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})
 });
 faders.forEach(el=>obs.observe(el));
 
-// PARALLAX
 window.addEventListener('scroll',()=>{
-  document.querySelectorAll('.parallax').forEach(img=>{
-    img.style.transform=`translateY(${window.scrollY*0.05}px)`
-  });
+ document.querySelectorAll('.parallax').forEach(img=>{
+  img.style.transform=`translateY(${window.scrollY*0.05}px)`
+ })
 });
 
 </script>
+
 </body>
 </html>
-:::
