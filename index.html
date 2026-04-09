@@ -5,247 +5,125 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CU VISUALS • Cedric Unger</title>
   <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap');
-    
-    :root { --neon: #00f3ff; }
-    body { 
-      font-family: 'Inter', system-ui, sans-serif; 
-      background: #ffffff; 
-      color: #111827; 
-      scroll-behavior: smooth; 
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap');
+
+    :root { --neon:#00f3ff; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background:#0a0a0a;
+      color:#e5e5e5;
     }
-    .logo-font { font-family: 'Space Grotesk', sans-serif; }
-    
-    .cu-logo {
-      font-size: clamp(120px, 18vw, 240px);
-      font-weight: 900;
-      letter-spacing: -12px;
-      background: linear-gradient(90deg, #00b8d4, #0284c8);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 15px #00a8c2;
+
+    .luxury-font { font-family: 'Playfair Display', serif; }
+
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)),
+      url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat;
     }
-    
-    .hero-bg { 
-      background: linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.9)), 
-                  url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat fixed; 
+
+    .neon {
+      color: var(--neon);
+      text-shadow: 0 0 8px var(--neon);
     }
-    
-    .glass { 
-      background: rgba(255,255,255,0.95); 
-      backdrop-filter: blur(20px); 
-      border: 1px solid rgba(0,0,0,0.08); 
+
+    .glass {
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.08);
     }
+
   </style>
 </head>
+
 <body>
 
-  <!-- NAV -->
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b py-5">
-    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-      <a href="#" class="flex items-center gap-3">
-        <div class="w-11 h-11 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-2xl flex items-center justify-center text-3xl font-black logo-font">CU</div>
-        <span class="text-2xl font-bold tracking-tighter logo-font text-[#00f3ff]">CU VISUALS</span>
-      </a>
+<!-- NAV -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-black/70 backdrop-blur-xl border-b border-white/10 py-6">
+  <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
 
-      <div class="hidden md:flex gap-10 text-sm font-medium uppercase tracking-widest">
-        <a href="#leistungen" class="hover:text-[#00f3ff]">Leistungen</a>
-        <a href="#referenzen" class="hover:text-[#00f3ff]">Referenzen</a>
-        <a href="#preise" class="hover:text-[#00f3ff]">Preise</a>
-        <a href="#story" class="hover:text-[#00f3ff]">Die Story</a>
-      </div>
+    <div class="text-lg tracking-[4px] luxury-font neon">CU VISUALS</div>
 
-      <a href="#" onclick="openBookingModal()" class="bg-[#00f3ff] text-white px-10 py-4 rounded-2xl font-semibold hover:bg-black hover:text-white transition-all">JETZT BUCHEN</a>
-
-      <button id="hamburger" class="md:hidden text-4xl transition-all">☰</button>
+    <div class="hidden md:flex gap-12 text-xs uppercase tracking-[3px] text-gray-400">
+      <a href="#leistungen" class="hover:text-white">Leistungen</a>
+      <a href="#referenzen" class="hover:text-white">Work</a>
+      <a href="#story" class="hover:text-white">Story</a>
     </div>
-  </nav>
 
-  <!-- MOBILE MENU -->
-  <div id="mobileMenu" class="hidden fixed inset-0 bg-white z-[999] flex flex-col items-center justify-center gap-10 text-3xl font-medium">
-    <a href="#leistungen" onclick="toggleMenu()" class="mobile-link">Leistungen</a>
-    <a href="#referenzen" onclick="toggleMenu()" class="mobile-link">Referenzen</a>
-    <a href="#preise" onclick="toggleMenu()" class="mobile-link">Preise</a>
-    <a href="#story" onclick="toggleMenu()" class="mobile-link">Die Story</a>
-    <a href="#" onclick="openBookingModal();toggleMenu()" class="mobile-link text-[#00f3ff]">Jetzt buchen</a>
-    <button onclick="toggleMenu()" class="mt-12 text-xl text-gray-500">Schließen ✕</button>
+    <a onclick="openBookingModal()" class="border border-[#00f3ff] text-[#00f3ff] px-8 py-3 text-xs tracking-[2px] hover:bg-[#00f3ff] hover:text-black transition cursor-pointer">
+      BOOK NOW
+    </a>
+
   </div>
+</nav>
 
-  <!-- HERO -->
-  <header class="hero-bg min-h-screen flex items-center">
-    <div class="max-w-7xl mx-auto px-6 text-center">
-      <div class="relative">
-        <h1 class="cu-logo logo-font">CU</h1>
-        <div class="text-6xl md:text-8xl font-bold tracking-widest text-black -mt-8">VISUALS</div>
-      </div>
-      <p class="mt-10 text-4xl font-light">Cedric Unger</p>
-      <p class="text-2xl text-gray-700 mt-2">Foto- &amp; Videograf</p>
-      <p class="mt-12 max-w-md mx-auto text-2xl font-light">where moments become cinematic</p>
-      
-      <div class="mt-20 flex flex-col sm:flex-row gap-6 justify-center">
-        <a href="#" onclick="openBookingModal()" class="bg-[#00f3ff] text-white px-14 py-6 rounded-3xl text-xl font-semibold">TERMIN BUCHEN</a>
-        <a href="#referenzen" class="border-2 border-cyan-400 px-14 py-6 rounded-3xl text-xl hover:bg-cyan-400 hover:text-white">Referenzen</a>
-      </div>
-    </div>
-  </header>
+<!-- HERO -->
+<header class="hero min-h-screen flex items-center justify-center text-center">
+  <div>
+    <h1 class="luxury-font text-5xl md:text-7xl tracking-[6px] mb-6 neon">CU VISUALS</h1>
+    <p class="text-gray-400 tracking-[3px] text-sm">CINEMATIC STORYTELLING</p>
+  </div>
+</header>
 
-  <!-- LEISTUNGEN -->
-  <section id="leistungen" class="py-28 bg-white">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-center font-bold mb-16">Entdecke die Leistungen</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="glass p-10 rounded-3xl text-center"><div class="text-7xl mb-6">📸</div><h3 class="text-2xl font-semibold">Portrait &amp; Lifestyle</h3></div>
-        <div class="glass p-10 rounded-3xl text-center"><div class="text-7xl mb-6">💒</div><h3 class="text-2xl font-semibold">Hochzeit &amp; Events</h3></div>
-        <div class="glass p-10 rounded-3xl text-center"><div class="text-7xl mb-6">🎥</div><h3 class="text-2xl font-semibold">Reels &amp; Cinematic Film</h3></div>
-      </div>
-    </div>
-  </section>
+<!-- PORTFOLIO -->
+<section id="referenzen" class="py-32">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="luxury-font text-3xl mb-16 tracking-[4px] neon">SELECTED WORK</h2>
 
-  <!-- REFERENZEN -->
-  <section id="referenzen" class="py-28 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-center font-bold mb-16">Ausgewählte Momente</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="overflow-hidden rounded-3xl"><img src="Schlatt-6.jpg" class="w-full h-96 object-cover hover:scale-110 transition"></div>
-        <div class="overflow-hidden rounded-3xl"><img src="Schlatt-5.jpg" class="w-full h-96 object-cover hover:scale-110 transition"></div>
-        <div class="overflow-hidden rounded-3xl"><img src="DSCF6793.jpg" class="w-full h-96 object-cover hover:scale-110 transition"></div>
-        <div class="overflow-hidden rounded-3xl"><img src="DSCF6821.jpg" class="w-full h-96 object-cover hover:scale-110 transition"></div>
-        <div class="overflow-hidden rounded-3xl"><img src="IMG_0124.jpg" class="w-full h-96 object-cover hover:scale-110 transition"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PREISE -->
-  <section id="preise" class="py-28 bg-white">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-center font-bold mb-16">Preise 2026</h2>
-
-      <!-- REELS -->
-      <div class="mb-20">
-        <h3 class="text-3xl font-bold mb-8">🎬 Reels (Social Media Content)</h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="glass p-8 rounded-3xl"><div class="text-cyan-400 text-sm font-medium">STARTER</div><div class="text-5xl font-black my-4">149 €</div><ul class="space-y-3 text-sm"><li>1 Reel (bis 15 Sek.)</li><li>Basic Color Grading</li><li>1 Revision</li></ul></div>
-          <div class="glass p-8 rounded-3xl border-2 border-cyan-400"><div class="text-cyan-400 text-sm font-medium">PREMIUM</div><div class="text-5xl font-black my-4">299 €</div><ul class="space-y-3 text-sm"><li>2–3 Reels (bis 20 Sek.)</li><li>Cinematic Color Grading</li><li>Sound Design + Effekte</li><li>2 Revisionen</li></ul></div>
-          <div class="glass p-8 rounded-3xl"><div class="text-cyan-400 text-sm font-medium">CINEMATIC</div><div class="text-5xl font-black my-4">499 €</div><ul class="space-y-3 text-sm"><li>3–5 Reels (bis 30 Sek.)</li><li>High-End Editing</li><li>Übergänge + Effekte</li><li>Premium Sound Design</li><li>unbegrenzte Revisionen</li></ul></div>
-        </div>
-      </div>
-
-      <!-- VIDEOPRODUKTION -->
-      <div class="mb-20">
-        <h3 class="text-3xl font-bold mb-8">🎥 Videoproduktion</h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="glass p-8 rounded-3xl"><div class="text-cyan-400 text-sm font-medium">BASIC VIDEO</div><div class="text-5xl font-black my-4">ab 249 €</div><ul class="space-y-3 text-sm"><li>Dreh vor Ort (ca. 1 Std.)</li><li>1 Video (bis 30 Sek.)</li><li>Color Grading</li></ul></div>
-          <div class="glass p-8 rounded-3xl border-2 border-cyan-400"><div class="text-cyan-400 text-sm font-medium">BUSINESS VIDEO</div><div class="text-5xl font-black my-4">ab 499 €</div><ul class="space-y-3 text-sm"><li>2–3 Std. Dreh</li><li>1–2 Videos (bis 60 Sek.)</li><li>Cinematic Look + Sound Design</li></ul></div>
-          <div class="glass p-8 rounded-3xl"><div class="text-cyan-400 text-sm font-medium">PREMIUM VIDEO</div><div class="text-5xl font-black my-4">ab 899 €</div><ul class="space-y-3 text-sm"><li>Halbtagesproduktion</li><li>mehrere Clips &amp; Perspektiven</li><li>High-End Cinematic Edit</li></ul></div>
-        </div>
-      </div>
-
-      <!-- FOTOSHOOTINGS -->
-      <div class="mb-20">
-        <h3 class="text-3xl font-bold mb-8">📸 Fotoshootings</h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="glass p-8 rounded-3xl"><div class="text-cyan-400 text-sm font-medium">STARTER SHOOTING</div><div class="text-5xl font-black my-4">99 €</div><ul class="space-y-3 text-sm"><li>ca. 30 Minuten</li><li>5 bearbeitete Bilder</li></ul></div>
-          <div class="glass p-8 rounded-3xl border-2 border-cyan-400"><div class="text-cyan-400 text-sm font-medium">PREMIUM SHOOTING</div><div class="text-5xl font-black my-4">199 €</div><ul class="space-y-3 text-sm"><li>1–2 Stunden</li><li>10–15 bearbeitete Bilder</li><li>High-End Retouch</li></ul></div>
-          <div class="glass p-8 rounded-3xl"><div class="text-cyan-400 text-sm font-medium">CINEMATIC SHOOTING</div><div class="text-5xl font-black my-4">349 €</div><ul class="space-y-3 text-sm"><li>2+ Stunden</li><li>20+ Bilder</li><li>Premium Bearbeitung + Look</li></ul></div>
-        </div>
-      </div>
-
-      <!-- OPTIONAL EXTRAS -->
-      <div class="glass p-10 rounded-3xl max-w-4xl mx-auto">
-        <h3 class="text-3xl font-bold mb-8">🔥 OPTIONAL EXTRAS</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
-          <div>• zusätzliche Reels: <strong>+79 € pro Reel</strong></div>
-          <div>• Drohnenaufnahmen: <strong>+100 €</strong></div>
-          <div>• Rohmaterial: <strong>+49 €</strong></div>
-        </div>
-        <p class="text-xs text-gray-500 mt-8">Alle Preise inkl. MwSt. • individuelle Pakete auf Anfrage möglich</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- STORY -->
-  <section id="story" class="py-28 bg-gray-50">
-    <div class="max-w-3xl mx-auto px-6 text-center">
-      <h2 class="font-bold mb-12">Die CU VISUALS Story</h2>
-      <div class="glass p-16 rounded-3xl text-xl">
-        Seit 2022 fange ich besondere Momente cinematic ein. Jedes Projekt wird wie ein kleiner Kinofilm behandelt.
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="bg-white py-12 text-center text-sm text-gray-600">
-    © 2026 CU VISUALS • Cedric Unger • 
-    <a href="mailto:cu.visuals@web.de">cu.visuals@web.de</a> • 
-    <a href="https://www.instagram.com/c.u_visuals" target="_blank">@c.u_visuals</a>
-  </footer>
-
-  <!-- BUCHUNGS MODAL mit allen Auswahlmöglichkeiten -->
-  <div id="modal" class="hidden fixed inset-0 bg-black/70 z-[9999] flex items-center justify-center p-4">
-    <div class="glass max-w-lg w-full rounded-3xl p-10 relative">
-      <button onclick="closeModal()" class="absolute top-6 right-6 text-4xl text-gray-400 hover:text-black">×</button>
-      <h3 class="text-3xl font-bold mb-6 text-center">Termin anfragen</h3>
-      
-      <input id="name" type="text" placeholder="Dein Name" class="w-full mb-4 p-5 rounded-2xl border">
-      <input id="email" type="email" placeholder="Deine E-Mail" class="w-full mb-4 p-5 rounded-2xl border">
-      
-      <select id="package" class="w-full mb-4 p-5 rounded-2xl border">
-        <option value="">Bitte Paket wählen...</option>
-        <optgroup label="🎬 Reels">
-          <option value="Reels Starter">Reels Starter – 149 €</option>
-          <option value="Reels Premium">Reels Premium – 299 €</option>
-          <option value="Reels Cinematic">Reels Cinematic – 499 €</option>
-        </optgroup>
-        <optgroup label="🎥 Videoproduktion">
-          <option value="Video Basic">Video Basic – ab 249 €</option>
-          <option value="Video Business">Video Business – ab 499 €</option>
-          <option value="Video Premium">Video Premium – ab 899 €</option>
-        </optgroup>
-        <optgroup label="📸 Fotoshootings">
-          <option value="Foto Starter">Foto Starter – 99 €</option>
-          <option value="Foto Premium">Foto Premium – 199 €</option>
-          <option value="Foto Cinematic">Foto Cinematic – 349 €</option>
-        </optgroup>
-      </select>
-      
-      <textarea id="message" placeholder="Nachricht oder Wunschtermin" rows="4" class="w-full p-5 rounded-2xl border"></textarea>
-      
-      <button onclick="sendEmail()" class="w-full mt-6 bg-[#00f3ff] text-white py-6 rounded-3xl text-xl font-semibold">
-        Anfrage per E-Mail senden
-      </button>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <img src="Schlatt-6.jpg" class="hover:opacity-70 transition">
+      <img src="Schlatt-5.jpg" class="hover:opacity-70 transition">
+      <img src="DSCF6793.jpg" class="hover:opacity-70 transition">
     </div>
   </div>
+</section>
 
-  <script>
-    document.getElementById('hamburger').addEventListener('click', () => {
-      document.getElementById('mobileMenu').classList.toggle('hidden');
-    });
+<!-- SERVICES -->
+<section id="leistungen" class="py-32 border-t border-white/10">
+  <div class="max-w-5xl mx-auto text-center">
+    <h2 class="luxury-font text-3xl mb-16 tracking-[4px] neon">SERVICES</h2>
 
-    function toggleMenu() {
-      document.getElementById('mobileMenu').classList.toggle('hidden');
-    }
+    <div class="grid md:grid-cols-3 gap-10 text-sm tracking-[2px] text-gray-400">
+      <div>PHOTOGRAPHY</div>
+      <div>VIDEOGRAPHY</div>
+      <div>CONTENT CREATION</div>
+    </div>
+  </div>
+</section>
 
-    function openBookingModal() {
-      document.getElementById('modal').classList.remove('hidden');
-    }
+<!-- STORY -->
+<section id="story" class="py-32 border-t border-white/10 text-center">
+  <div class="max-w-2xl mx-auto">
+    <h2 class="luxury-font text-3xl mb-10 tracking-[4px] neon">THE STORY</h2>
+    <p class="text-gray-400 leading-relaxed">
+      Since 2022 capturing moments in a cinematic way.
+      Every project is treated like a film.
+    </p>
+  </div>
+</section>
 
-    function closeModal() {
-      document.getElementById('modal').classList.add('hidden');
-    }
+<!-- FOOTER -->
+<footer class="py-12 text-center text-gray-500 text-xs tracking-[2px]">
+  © 2026 CU VISUALS
+</footer>
 
-    function sendEmail() {
-      const name = document.getElementById('name').value || 'Unbekannt';
-      const email = document.getElementById('email').value || '';
-      const paket = document.getElementById('package').value || 'Kein Paket';
-      const msg = document.getElementById('message').value || '';
+<!-- MODAL -->
+<div id="modal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center">
+  <div class="glass p-10 max-w-md w-full">
+    <h3 class="luxury-font text-xl mb-6 tracking-[3px] neon">BOOKING</h3>
+    <input placeholder="NAME" class="w-full mb-4 bg-transparent border-b border-white/20 p-2">
+    <input placeholder="EMAIL" class="w-full mb-4 bg-transparent border-b border-white/20 p-2">
+    <button class="mt-6 border border-[#00f3ff] text-[#00f3ff] px-6 py-2 w-full hover:bg-[#00f3ff] hover:text-black transition">SEND</button>
+  </div>
+</div>
 
-      const subject = `Buchungsanfrage - ${paket} - ${name}`;
-      const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0APaket: ${paket}%0D%0ANachricht:%0D%0A${msg}`;
+<script>
+function openBookingModal(){
+  document.getElementById('modal').classList.remove('hidden');
+}
+</script>
 
-      window.location.href = `mailto:cu.visuals@web.de?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      closeModal();
-    }
-  </script>
 </body>
 </html>
