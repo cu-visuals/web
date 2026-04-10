@@ -124,7 +124,7 @@ body {
   <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto px-6">
 
     <a href="hochzeiten.html" class="service-card rounded-2xl">
-      <img src="DSCF6793.jpg">
+      <video src="hochzeit.mp4" autoplay muted loop></video>
       <div class="service-overlay">
         <h3>Hochzeiten</h3>
         <span>Mehr ansehen</span>
@@ -136,7 +136,7 @@ body {
     </a>
 
     <a href="immobilien.html" class="service-card rounded-2xl">
-      <img src="Schlatt-6.jpg">
+      <video src="immobilien.mp4" autoplay muted loop></video>
       <div class="service-overlay">
         <h3>Immobilien</h3>
         <span>Mehr ansehen</span>
@@ -214,9 +214,80 @@ body {
   </div>
 </section>
 
+<!-- KONTAKT -->
+<section id="kontakt" class="py-28 text-center">
+  <h2 class="text-3xl font-bold mb-10 neon-text">Anfrage senden</h2>
+  <div class="max-w-xl mx-auto">
+    <input id="name" placeholder="Name" class="w-full mb-4 p-4 bg-black border border-white/10 rounded-xl text-white">
+    <input id="email" placeholder="Email" class="w-full mb-4 p-4 bg-black border border-white/10 rounded-xl text-white">
+    <textarea id="msg" placeholder="Dein Projekt..." class="w-full mb-4 p-4 bg-black border border-white/10 rounded-xl text-white"></textarea>
+    <button onclick="sendEmail()" class="bg-[#00f3ff] text-black px-10 py-4 rounded-xl">Absenden</button>
+  </div>
+</section>
 
+<!-- FOOTER -->
+<footer class="py-16 text-center border-t border-white/10 mt-20 px-6">
+  <div class="mb-4 neon-text text-lg font-semibold">CU VISUALS</div>
+  <p class="text-gray-500 text-sm mb-2">Cedric Unger • Foto & Videograf</p>
+  <p class="text-gray-500 text-sm mb-4">cu.visuals@web.de • +49 170 4944793</p>
 
+  <!-- IMPRESSUM -->
+  <div class="max-w-3xl mx-auto text-left text-gray-500 text-sm mt-10 space-y-4">
+    <h3 class="neon-text font-semibold">Impressum</h3>
 
+    <p><strong>Anbieter:</strong><br>
+    Cedric Unger<br>
+    Im Tiefen Brunnen 1<br>
+    78239 Rielasingen-Worblingen</p>
+
+    <p><strong>Kontakt:</strong><br>
+    Telefon: +49 170 4944793<br>
+    E-Mail: cu.visuals@web.de</p>
+
+    <p><strong>Verantwortlich für den Inhalt:</strong><br>
+    Cedric Unger</p>
+
+    <p><strong>Urheberrecht:</strong><br>
+    Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht.
+    Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
+
+    <p><strong>Kleinunternehmerregelung:</strong><br>
+    Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.</p>
+  </div>
+
+  <p class="text-gray-600 text-xs mt-10">© 2026 CU VISUALS – Alle Rechte vorbehalten</p>
+  
+  <!-- LINKS -->
+  <div class="mt-6 text-xs text-gray-500 space-x-4">
+    <a href="#datenschutz" class="hover:text-[#00f3ff]">Datenschutz</a>
+    <a href="#impressum" class="hover:text-[#00f3ff]">Impressum</a>
+  </div>
+
+</footer>
+
+<!-- DATENSCHUTZ -->
+<section id="datenschutz" class="py-20 px-6 max-w-4xl mx-auto text-gray-400 text-sm">
+  <h2 class="text-2xl neon-text mb-6">Datenschutzerklärung</h2>
+
+  <p class="mb-4">
+    Die Nutzung dieser Website ist in der Regel ohne Angabe personenbezogener Daten möglich.
+    Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name oder E-Mail-Adressen)
+    erhoben werden, erfolgt dies stets auf freiwilliger Basis.
+  </p>
+
+  <p class="mb-4">
+    Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben.
+    Wir weisen darauf hin, dass die Datenübertragung im Internet Sicherheitslücken aufweisen kann.
+  </p>
+
+  <p class="mb-4">
+    Beim Versenden einer Anfrage per E-Mail werden die angegebenen Daten zur Bearbeitung der Anfrage gespeichert.
+  </p>
+
+  <p>
+    Verantwortlich: Cedric Unger, Im Tiefen Brunnen 1, 78239 Rielasingen-Worblingen
+  </p>
+</section>
 
 <script>
 const burger=document.getElementById('hamburger');
