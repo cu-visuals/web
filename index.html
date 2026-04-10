@@ -91,7 +91,7 @@ body {
     </div>
 
     <div class="flex items-center gap-4">
-      <a href="#kontakt" class="hidden sm:block bg-[#00f3ff] text-black px-6 py-2 rounded-xl font-semibold text-sm">Buchen</a>
+      <a href="#" onclick="openModal()" class="hidden sm:block bg-[#00f3ff] text-black px-6 py-2 rounded-xl font-semibold text-sm">Buchen</a>
       <div id="hamburger" class="text-3xl cursor-pointer neon-text">☰</div>
     </div>
 
@@ -214,7 +214,16 @@ body {
   </div>
 </section>
 
-
+<!-- KONTAKT -->
+<section id="kontakt" class="py-28 text-center">
+  <h2 class="text-3xl font-bold mb-10 neon-text">Anfrage senden</h2>
+  <div class="max-w-xl mx-auto">
+    <input id="name" placeholder="Name" class="w-full mb-4 p-4 bg-black border border-white/10 rounded-xl text-white">
+    <input id="email" placeholder="Email" class="w-full mb-4 p-4 bg-black border border-white/10 rounded-xl text-white">
+    <textarea id="msg" placeholder="Dein Projekt..." class="w-full mb-4 p-4 bg-black border border-white/10 rounded-xl text-white"></textarea>
+    <button onclick="sendEmail()" class="bg-[#00f3ff] text-black px-10 py-4 rounded-xl">Absenden</button>
+  </div>
+</section>
 
 <!-- FOOTER -->
 <footer class="py-16 text-center border-t border-white/10 mt-20">
