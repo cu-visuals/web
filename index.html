@@ -36,18 +36,9 @@ body {
               url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat fixed;
 }
 
-/* 🔥 SERVICE HOVER */
-.service-card {
-  transition:0.3s;
-  cursor:pointer;
-}
-.service-card:hover {
-  transform:translateY(-6px);
-  box-shadow:0 10px 30px rgba(0,0,0,0.1);
-  border-color:#00f3ff;
-}
+.service-card{transition:0.3s;cursor:pointer;}
+.service-card:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(0,0,0,0.1);border-color:#00f3ff;}
 
-/* Bilder */
 .img-wrap { position:relative; overflow:hidden; border-radius:20px; cursor:pointer; }
 .img-wrap img { width:100%; height:100%; object-fit:cover; transition:0.7s ease; }
 .img-wrap:hover img { transform:scale(1.1); filter:brightness(0.8); }
@@ -107,7 +98,7 @@ body {
   </div>
 </header>
 
-<!-- 🔥 LEISTUNGEN (JETZT KLICKBAR) -->
+<!-- LEISTUNGEN -->
 <section id="leistungen" class="py-28">
   <h2 class="text-center font-bold mb-16 text-3xl">Leistungen</h2>
 
@@ -115,7 +106,7 @@ body {
 
     <a href="hochzeiten.html" class="service-card p-8 border rounded-2xl">
       <h3 class="font-bold text-xl mb-3">💒 Hochzeiten</h3>
-      <p class="text-gray-600 text-sm">Emotionale Begleitung eures großen Tages.</p>
+      <p class="text-gray-600 text-sm">Emotionale Momente, authentisch eingefangen.</p>
     </a>
 
     <a href="immobilien.html" class="service-card p-8 border rounded-2xl">
@@ -136,24 +127,78 @@ body {
   </div>
 </section>
 
-<!-- REST BLEIBT UNVERÄNDERT (Portfolio etc.) -->
+<!-- WARUM CU VISUALS -->
+<section class="py-20 text-center">
+  <h2 class="text-3xl font-bold mb-6">Warum CU VISUALS?</h2>
+  <p class="max-w-2xl mx-auto text-gray-600">
+    Ich helfe Marken & Personen dabei, sich visuell hochwertig zu präsentieren – mit Content, der nicht nur gut aussieht, sondern Ergebnisse liefert.
+  </p>
+</section>
 
-<!-- SCRIPT -->
+<!-- PORTFOLIO -->
+<section id="referenzen" class="py-28 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-6">
+    <div class="img-wrap fade-up"><img src="Schlatt-6.jpg" class="parallax" onclick="openLightbox(this.src)"></div>
+    <div class="img-wrap fade-up"><img src="Schlatt-5.jpg" class="parallax" onclick="openLightbox(this.src)"></div>
+    <div class="img-wrap fade-up"><img src="DSCF6793.jpg" class="parallax" onclick="openLightbox(this.src)"></div>
+    <div class="img-wrap fade-up"><img src="DSCF6821.jpg" class="parallax" onclick="openLightbox(this.src)"></div>
+    <div class="img-wrap fade-up"><img src="IMG_0124.jpg" class="parallax" onclick="openLightbox(this.src)"></div>
+  </div>
+</section>
+
+<!-- ABLAUF -->
+<section id="ablauf" class="py-28">
+  <h2 class="text-center text-3xl font-bold mb-16">So läuft die Zusammenarbeit</h2>
+  <div class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto px-6 text-center">
+    <div>
+      <h3 class="font-bold mb-2">1. Anfrage</h3>
+      <p class="text-gray-600">Du sendest mir deine Anfrage.</p>
+    </div>
+    <div>
+      <h3 class="font-bold mb-2">2. Produktion</h3>
+      <p class="text-gray-600">Ich setze dein Projekt um.</p>
+    </div>
+    <div>
+      <h3 class="font-bold mb-2">3. Ergebnis</h3>
+      <p class="text-gray-600">Du bekommst fertigen Content.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-20 text-center bg-gray-100">
+  <h2 class="text-3xl font-bold mb-6">Bereit für dein Projekt?</h2>
+  <a href="#kontakt" class="bg-[#00f3ff] text-white px-12 py-5 rounded-2xl">Jetzt anfragen</a>
+</section>
+
+<!-- KONTAKT -->
+<section id="kontakt" class="py-28 text-center">
+  <h2 class="text-3xl font-bold mb-10">Anfrage senden</h2>
+  <div class="max-w-xl mx-auto">
+    <input id="name" placeholder="Name" class="w-full mb-4 p-4 border rounded-xl">
+    <input id="email" placeholder="Email" class="w-full mb-4 p-4 border rounded-xl">
+    <textarea id="msg" placeholder="Dein Projekt..." class="w-full mb-4 p-4 border rounded-xl"></textarea>
+    <button onclick="sendEmail()" class="bg-[#00f3ff] text-white px-10 py-4 rounded-xl">Absenden</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-12 text-center text-sm text-gray-500">
+  © 2026 CU VISUALS • cu.visuals@web.de
+</footer>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img">
+</div>
+
 <script>
+const burger=document.getElementById('hamburger');
+const menu=document.getElementById('mobileMenu');
 
-// MENU FIX
-const burger = document.getElementById('hamburger');
-const menu = document.getElementById('mobileMenu');
+burger.addEventListener('click',()=>{menu.classList.toggle('hidden');});
+function toggleMenu(){menu.classList.toggle('hidden');}
 
-burger.addEventListener('click', () => {
-  menu.classList.toggle('hidden');
-});
-
-function toggleMenu(){
-  menu.classList.toggle('hidden');
-}
-
-// EMAIL
 function sendEmail(){
   let name=document.getElementById('name').value;
   let email=document.getElementById('email').value;
@@ -161,29 +206,26 @@ function sendEmail(){
   window.location.href=`mailto:cu.visuals@web.de?subject=Anfrage ${name}&body=${msg}`;
 }
 
-// LIGHTBOX
 function openLightbox(src){
   document.getElementById('lightbox').style.display='flex';
   document.getElementById('lightbox-img').src=src;
 }
+
 function closeLightbox(){
   document.getElementById('lightbox').style.display='none';
 }
 
-// ANIMATION
 const faders=document.querySelectorAll('.fade-up');
 const obs=new IntersectionObserver(e=>{
  e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})
 });
 faders.forEach(el=>obs.observe(el));
 
-// PARALLAX
 window.addEventListener('scroll',()=>{
  document.querySelectorAll('.parallax').forEach(img=>{
   img.style.transform=`translateY(${window.scrollY*0.05}px)`
  })
 });
-
 </script>
 
 </body>
