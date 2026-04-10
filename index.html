@@ -171,15 +171,23 @@ body {
   </p>
 </section>
 
-<!-- PORTFOLIO -->
+<!-- REFERENZEN (NETFLIX SLIDER) -->
 <section id="referenzen" class="py-28 bg-black">
-  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-6">
-    <div class="img-wrap fade-up"><img src="Schlatt-6.jpg" class="parallax" onclick="openLightbox(this.src)"></div>
-    <div class="img-wrap fade-up"><img src="Schlatt-5.jpg" class="parallax" onclick="openLightbox(this.src)"></div>
-    <div class="img-wrap fade-up"><img src="DSCF6793.jpg" class="parallax" onclick="openLightbox(this.src)"></div>
-    <div class="img-wrap fade-up"><img src="DSCF6821.jpg" class="parallax" onclick="openLightbox(this.src)"></div>
-    <div class="img-wrap fade-up"><img src="IMG_0124.jpg" class="parallax" onclick="openLightbox(this.src)"></div>
-  </div>
+  <h2 class="text-center text-3xl font-bold mb-16 neon-text">Referenzen</h2>
+
+  <div class="slider-container max-w-6xl mx-auto">
+    <div id="sliderBg" class="slider-bg"></div>
+    <div class="slider-content">
+    <div id="sliderTrack" class="slider-track">
+
+      <div class="slide img-wrap active"><img src="Schlatt-6.jpg" /></div>
+      <div class="slide img-wrap"><img src="Schlatt-5.jpg" /></div>
+      <div class="slide img-wrap"><img src="DSCF6793.jpg" /></div>
+      <div class="slide img-wrap"><img src="DSCF6821.jpg" /></div>
+      <div class="slide img-wrap"><img src="IMG_0124.jpg" /></div>
+
+    </div>
+    </div>
 </section>
 
 <!-- ABLAUF -->
@@ -256,5 +264,94 @@ window.addEventListener('scroll',()=>{
 });
 </script>
 
+
+
+<!-- WHATSAPP FLOAT BUTTON -->
+<a href="https://wa.me/491234567890" target="_blank" class="fixed bottom-6 right-6 bg-[#00f3ff] text-black px-5 py-3 rounded-full shadow-lg font-semibold z-50">
+  WhatsApp
+</a>
+
+<!-- HIGH-CONVERSION TEXT BLOCK -->
+<section class="py-24 text-center max-w-3xl mx-auto px-6">
+  <h2 class="text-3xl font-bold neon-text mb-6">Mehr Sichtbarkeit. Mehr Kunden.</h2>
+  <p class="text-gray-400">
+    Deine Bilder sind oft der erste Eindruck – und genau der entscheidet, ob ein Kunde bei dir anfragt oder weiterscrollt.
+    
+    Ich produziere Content, der nicht nur gut aussieht, sondern gezielt Aufmerksamkeit erzeugt und Vertrauen aufbaut.
+  </p>
+</section>
+
+<!-- STRONG CTA -->
+<section class="py-20 text-center">
+  <h2 class="text-4xl font-bold neon-text mb-6">Bereit, mehr Kunden zu gewinnen?</h2>
+  <p class="text-gray-400 mb-8">Lass uns dein Projekt starten und deine Marke auf das nächste Level bringen.</p>
+  <a href="#kontakt" class="bg-[#00f3ff] text-black px-10 py-5 rounded-2xl font-semibold text-lg">Jetzt kostenlos anfragen</a>
+</section>
+
 </body>
 </html>
+
+<!-- NETFLIX STYLE SLIDER -->
+<style>
+.slider-container{position:relative;overflow:hidden}
+.slider-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:blur(60px);opacity:0.3;z-index:0;transition:0.6s}
+.slider-content{position:relative;z-index:1}
+.slider-track{display:flex;transition:0.6s ease}
+.slide{min-width:60%;margin:0 20px;transform:scale(0.8);opacity:0.5;transition:0.5s}
+.slide.active{transform:scale(1);opacity:1}
+</style>
+
+<script>
+let index = 0;
+const track = document.getElementById('sliderTrack');
+const slides = document.querySelectorAll('.slide');
+
+function updateSlider(){
+  const bg = document.getElementById('sliderBg');
+  slides.forEach((s,i)=>{
+    s.classList.remove('active');
+  });
+
+  slides[index].classList.add('active');
+  const img = slides[index].querySelector('img');
+  if(img){ bg.style.backgroundImage = `url(${img.src})`; }
+
+  const offset = index * (slides[0].offsetWidth + 40);
+  track.style.transform = `translateX(-${offset}px)`;
+}
+
+function nextSlide(){
+  index = (index + 1) % slides.length;
+  updateSlider();
+}
+
+function prevSlide(){
+  index = (index - 1 + slides.length) % slides.length;
+  updateSlider();
+}
+
+updateSlider();
+}
+
+function prevSlide(){
+  index = (index - 1 + slides.length) % slides.length;
+  updateSlider();
+}
+
+updateSlider();
+
+// Swipe
+let startX=0;
+document.addEventListener('touchstart',e=>startX=e.touches[0].clientX);
+document.addEventListener('touchend',e=>{
+ let endX=e.changedTouches[0].clientX;
+ if(startX-endX>50) nextSlide();
+ if(endX-startX>50) prevSlide();
+});
+</script>
+
+<!-- ARROWS -->
+<div class="fixed bottom-10 left-1/2 -translate-x-1/2 flex gap-6 z-50">
+  <button onclick="prevSlide()" class="bg-black/70 text-white px-4 py-2 rounded-xl border border-white/20">←</button>
+  <button onclick="nextSlide()" class="bg-black/70 text-white px-4 py-2 rounded-xl border border-white/20">→</button>
+</div>
