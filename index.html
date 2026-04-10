@@ -293,12 +293,27 @@ window.addEventListener('scroll',()=>{
   <a href="#kontakt" class="bg-[#00f3ff] text-black px-10 py-5 rounded-2xl font-semibold text-lg">Jetzt kostenlos anfragen</a>
 </section>
 
+
+<!-- FOOTER -->
+<footer class="py-16 text-center border-t border-white/10 mt-20">
+  <div class="mb-4 neon-text text-lg font-semibold">CU VISUALS</div>
+  <p class="text-gray-500 text-sm mb-2">Cedric Unger • Foto & Videograf</p>
+  <p class="text-gray-500 text-sm mb-4">cu.visuals@web.de</p>
+  <p class="text-gray-600 text-xs">© 2026 CU VISUALS – Alle Rechte vorbehalten</p>
+</footer>
+
 </body>
 </html>
 
 <!-- NETFLIX STYLE SLIDER -->
 <style>
 
+.slider-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:blur(60px);opacity:0.3;z-index:0;transition:0.6s}
+.slider-content{position:relative;z-index:1}
+.slider-track{display:flex;transition:0.6s ease}
+
+.slide img{border-radius:16px}
+.slide.active{transform:scale(1);opacity:1}
 </style>
 
 <script>
