@@ -227,14 +227,16 @@ body {
 
 <!-- FOOTER -->
 <footer class="py-16 text-center border-t border-white/10 mt-20 px-6">
-  <div class="mb-4 neon-text text-lg font-semibold">CU VISUALS</div>
-  <p class="text-gray-500 text-sm mb-2">Cedric Unger • Foto & Videograf</p>
-  <p class="text-gray-500 text-sm mb-4">cu.visuals@web.de • +49 170 4944793</p>
+  <div class="neon-text text-lg font-semibold mb-2">CU VISUALS</div>
+  <p class="text-gray-500 text-sm mb-4">Cedric Unger • Foto & Videograf • cu.visuals@web.de</p>
 
-  <!-- IMPRESSUM -->
-  <div class="max-w-3xl mx-auto text-left text-gray-500 text-sm mt-10 space-y-4">
-    <h3 class="neon-text font-semibold">Impressum</h3>
+  <!-- IMPRESSUM TOGGLE BUTTON -->
+  <button onclick="toggleImpressum()" class="text-sm text-gray-400 hover:text-[#00f3ff]">
+    Impressum anzeigen
+  </button>
 
+  <!-- IMPRESSUM CONTENT (HIDDEN) -->
+  <div id="impressum" class="hidden max-w-3xl mx-auto text-left text-gray-400 text-sm mt-6 space-y-4">
     <p><strong>Anbieter:</strong><br>
     Cedric Unger<br>
     Im Tiefen Brunnen 1<br>
@@ -248,22 +250,21 @@ body {
     Cedric Unger</p>
 
     <p><strong>Urheberrecht:</strong><br>
-    Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht.
-    Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
+    Inhalte dieser Website unterliegen dem deutschen Urheberrecht.
+    Jegliche Verwendung bedarf der Zustimmung.</p>
 
     <p><strong>Kleinunternehmerregelung:</strong><br>
     Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.</p>
   </div>
 
-  <p class="text-gray-600 text-xs mt-10">© 2026 CU VISUALS – Alle Rechte vorbehalten</p>
-  
-  <!-- LINKS -->
-  <div class="mt-6 text-xs text-gray-500 space-x-4">
-    <a href="#datenschutz" class="hover:text-[#00f3ff]">Datenschutz</a>
-    <a href="#impressum" class="hover:text-[#00f3ff]">Impressum</a>
-  </div>
-
+  <p class="text-gray-600 text-xs mt-10">© 2026 CU VISUALS</p>
 </footer>
+
+<script>
+function toggleImpressum(){
+  document.getElementById('impressum').classList.toggle('hidden');
+}
+</script>
 
 <!-- DATENSCHUTZ -->
 <section id="datenschutz" class="py-20 px-6 max-w-4xl mx-auto text-gray-400 text-sm">
