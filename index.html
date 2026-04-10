@@ -5,7 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>CU VISUALS • Cedric Unger</title>
 
-<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com">
+
+// LIGHTBOX CLICK
+slides.forEach(slide=>{
+  slide.addEventListener('click',()=>{
+    const img = slide.querySelector('img');
+    document.getElementById('lightbox').style.display='flex';
+    document.getElementById('lightbox-img').src=img.src;
+  });
+});
+
+</script>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
@@ -297,7 +308,8 @@ window.addEventListener('scroll',()=>{
 .slider-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:blur(60px);opacity:0.3;z-index:0;transition:0.6s}
 .slider-content{position:relative;z-index:1}
 .slider-track{display:flex;transition:0.6s ease}
-.slide{min-width:60%;margin:0 20px;transform:scale(0.8);opacity:0.5;transition:0.5s}
+.slide{min-width:45%;margin:0 15px;transform:scale(0.8);opacity:0.5;transition:0.5s;cursor:pointer}
+.slide img{border-radius:16px}
 .slide.active{transform:scale(1);opacity:1}
 </style>
 
@@ -350,8 +362,8 @@ document.addEventListener('touchend',e=>{
 });
 </script>
 
-<!-- ARROWS -->
-<div class="fixed bottom-10 left-1/2 -translate-x-1/2 flex gap-6 z-50">
+<!-- ARROWS (nur Slider) -->
+<div class="flex justify-center gap-6 mt-10">
   <button onclick="prevSlide()" class="bg-black/70 text-white px-4 py-2 rounded-xl border border-white/20">←</button>
   <button onclick="nextSlide()" class="bg-black/70 text-white px-4 py-2 rounded-xl border border-white/20">→</button>
 </div>
