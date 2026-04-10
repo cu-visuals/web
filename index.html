@@ -14,8 +14,8 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background:#ffffff;
-  color:#111827;
+  background:#000000;
+  color:#ffffff;
   scroll-behavior:smooth;
 }
 
@@ -25,31 +25,33 @@ body {
   font-size: clamp(120px, 18vw, 240px);
   font-weight: 900;
   letter-spacing: -12px;
-  background: linear-gradient(90deg, #00b8d4, #0284c8);
+  background: linear-gradient(90deg, #00f3ff, #0284c8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 15px #00a8c2;
+  text-shadow: 0 0 20px #00f3ff;
 }
 
 .hero-bg {
-  background: linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.9)),
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)),
               url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat fixed;
 }
 
-.service-card{transition:0.3s;cursor:pointer;}
-.service-card:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(0,0,0,0.1);border-color:#00f3ff;}
+.service-card{transition:0.3s;cursor:pointer;background:#0a0a0a;border:1px solid rgba(255,255,255,0.1);}
+.service-card:hover{transform:translateY(-6px);box-shadow:0 0 25px #00f3ff;border-color:#00f3ff;}
 
 .img-wrap { position:relative; overflow:hidden; border-radius:20px; cursor:pointer; }
 .img-wrap img { width:100%; height:100%; object-fit:cover; transition:0.7s ease; }
-.img-wrap:hover img { transform:scale(1.1); filter:brightness(0.8); }
+.img-wrap:hover img { transform:scale(1.1); filter:brightness(0.6); }
 
 .fade-up { opacity:0; transform:translateY(40px); transition:1s; }
 .fade-up.visible { opacity:1; transform:translateY(0); }
 
 .parallax { transform: translateY(0); transition: transform 0.2s linear; }
 
-#lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); justify-content:center; align-items:center; z-index:9999; }
+#lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.95); justify-content:center; align-items:center; z-index:9999; }
 #lightbox img { max-width:90%; max-height:90%; }
+
+.neon-text{color:#00f3ff;}
 
 </style>
 </head>
@@ -57,14 +59,14 @@ body {
 <body id="top">
 
 <!-- NAV -->
-<nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b py-4">
+<nav class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/10 py-4">
   <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
 
     <a href="index.html">
       <div class="w-10 h-10 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-xl flex items-center justify-center text-xl font-black logo-font">CU</div>
     </a>
 
-    <div class="hidden lg:flex gap-8 text-sm uppercase tracking-widest">
+    <div class="hidden lg:flex gap-8 text-sm uppercase tracking-widest neon-text">
       <a href="#leistungen">Leistungen</a>
       <a href="#referenzen">Referenzen</a>
       <a href="#ablauf">Ablauf</a>
@@ -72,15 +74,15 @@ body {
     </div>
 
     <div class="flex items-center gap-4">
-      <a href="#kontakt" class="hidden sm:block bg-[#00f3ff] text-white px-6 py-2 rounded-xl font-semibold text-sm">Buchen</a>
-      <div id="hamburger" class="text-3xl cursor-pointer">☰</div>
+      <a href="#kontakt" class="hidden sm:block bg-[#00f3ff] text-black px-6 py-2 rounded-xl font-semibold text-sm">Buchen</a>
+      <div id="hamburger" class="text-3xl cursor-pointer neon-text">☰</div>
     </div>
 
   </div>
 </nav>
 
 <!-- MOBILE MENU -->
-<div id="mobileMenu" class="hidden fixed inset-0 bg-white z-[999] flex flex-col items-center justify-center gap-10 text-2xl">
+<div id="mobileMenu" class="hidden fixed inset-0 bg-black z-[999] flex flex-col items-center justify-center gap-10 text-2xl neon-text">
   <a href="index.html">Startseite</a>
   <a href="hochzeiten.html">Hochzeiten</a>
   <a href="immobilien.html">Immobilien</a>
@@ -93,50 +95,50 @@ body {
 <header class="hero-bg min-h-screen flex items-center justify-center text-center">
   <div>
     <h1 class="cu-logo logo-font">CU</h1>
-    <div class="text-6xl md:text-8xl font-bold tracking-widest text-black -mt-8">VISUALS</div>
-    <p class="mt-10 text-2xl text-gray-700">Foto- & Videograf</p>
+    <div class="text-6xl md:text-8xl font-bold tracking-widest neon-text -mt-8">VISUALS</div>
+    <p class="mt-10 text-2xl text-gray-300">Foto- & Videograf</p>
   </div>
 </header>
 
 <!-- LEISTUNGEN -->
 <section id="leistungen" class="py-28">
-  <h2 class="text-center font-bold mb-16 text-3xl">Leistungen</h2>
+  <h2 class="text-center font-bold mb-16 text-3xl neon-text">Leistungen</h2>
 
   <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto px-6">
 
-    <a href="hochzeiten.html" class="service-card p-8 border rounded-2xl">
-      <h3 class="font-bold text-xl mb-3">💒 Hochzeiten</h3>
-      <p class="text-gray-600 text-sm">Emotionale Momente, authentisch eingefangen.</p>
+    <a href="hochzeiten.html" class="service-card p-8 rounded-2xl">
+      <h3 class="font-bold text-xl mb-3 neon-text">💒 Hochzeiten</h3>
+      <p class="text-gray-400 text-sm">Emotionale Momente, authentisch eingefangen.</p>
     </a>
 
-    <a href="immobilien.html" class="service-card p-8 border rounded-2xl">
-      <h3 class="font-bold text-xl mb-3">🏠 Immobilien</h3>
-      <p class="text-gray-600 text-sm">Content der schneller verkauft.</p>
+    <a href="immobilien.html" class="service-card p-8 rounded-2xl">
+      <h3 class="font-bold text-xl mb-3 neon-text">🏠 Immobilien</h3>
+      <p class="text-gray-400 text-sm">Content der schneller verkauft.</p>
     </a>
 
-    <a href="content.html" class="service-card p-8 border rounded-2xl">
-      <h3 class="font-bold text-xl mb-3">📱 Social Media</h3>
-      <p class="text-gray-600 text-sm">Content der Reichweite bringt.</p>
+    <a href="content.html" class="service-card p-8 rounded-2xl">
+      <h3 class="font-bold text-xl mb-3 neon-text">📱 Social Media</h3>
+      <p class="text-gray-400 text-sm">Content der Reichweite bringt.</p>
     </a>
 
-    <a href="shooting.html" class="service-card p-8 border rounded-2xl">
-      <h3 class="font-bold text-xl mb-3">📸 Shootings</h3>
-      <p class="text-gray-600 text-sm">Individuelle Shootings für dich.</p>
+    <a href="shooting.html" class="service-card p-8 rounded-2xl">
+      <h3 class="font-bold text-xl mb-3 neon-text">📸 Shootings</h3>
+      <p class="text-gray-400 text-sm">Individuelle Shootings für dich.</p>
     </a>
 
   </div>
 </section>
 
-<!-- WARUM CU VISUALS -->
+<!-- WARUM -->
 <section class="py-20 text-center">
-  <h2 class="text-3xl font-bold mb-6">Warum CU VISUALS?</h2>
-  <p class="max-w-2xl mx-auto text-gray-600">
-    Ich helfe Marken & Personen dabei, sich visuell hochwertig zu präsentieren – mit Content, der nicht nur gut aussieht, sondern Ergebnisse liefert.
+  <h2 class="text-3xl font-bold mb-6 neon-text">Warum CU VISUALS?</h2>
+  <p class="max-w-2xl mx-auto text-gray-400">
+    Ich helfe Marken & Personen dabei, sich visuell hochwertig zu präsentieren – mit Content, der Ergebnisse liefert.
   </p>
 </section>
 
 <!-- PORTFOLIO -->
-<section id="referenzen" class="py-28 bg-gray-50">
+<section id="referenzen" class="py-28 bg-black">
   <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-6">
     <div class="img-wrap fade-up"><img src="Schlatt-6.jpg" class="parallax" onclick="openLightbox(this.src)"></div>
     <div class="img-wrap fade-up"><img src="Schlatt-5.jpg" class="parallax" onclick="openLightbox(this.src)"></div>
@@ -146,51 +148,21 @@ body {
   </div>
 </section>
 
-<!-- ABLAUF -->
-<section id="ablauf" class="py-28">
-  <h2 class="text-center text-3xl font-bold mb-16">So läuft die Zusammenarbeit</h2>
-  <div class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto px-6 text-center">
-    <div>
-      <h3 class="font-bold mb-2">1. Anfrage</h3>
-      <p class="text-gray-600">Du sendest mir deine Anfrage.</p>
-    </div>
-    <div>
-      <h3 class="font-bold mb-2">2. Produktion</h3>
-      <p class="text-gray-600">Ich setze dein Projekt um.</p>
-    </div>
-    <div>
-      <h3 class="font-bold mb-2">3. Ergebnis</h3>
-      <p class="text-gray-600">Du bekommst fertigen Content.</p>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="py-20 text-center bg-gray-100">
-  <h2 class="text-3xl font-bold mb-6">Bereit für dein Projekt?</h2>
-  <a href="#kontakt" class="bg-[#00f3ff] text-white px-12 py-5 rounded-2xl">Jetzt anfragen</a>
-</section>
-
 <!-- KONTAKT -->
 <section id="kontakt" class="py-28 text-center">
-  <h2 class="text-3xl font-bold mb-10">Anfrage senden</h2>
+  <h2 class="text-3xl font-bold mb-10 neon-text">Anfrage senden</h2>
   <div class="max-w-xl mx-auto">
-    <input id="name" placeholder="Name" class="w-full mb-4 p-4 border rounded-xl">
-    <input id="email" placeholder="Email" class="w-full mb-4 p-4 border rounded-xl">
-    <textarea id="msg" placeholder="Dein Projekt..." class="w-full mb-4 p-4 border rounded-xl"></textarea>
-    <button onclick="sendEmail()" class="bg-[#00f3ff] text-white px-10 py-4 rounded-xl">Absenden</button>
+    <input id="name" placeholder="Name" class="w-full mb-4 p-4 bg-black border border-white/10 rounded-xl text-white">
+    <input id="email" placeholder="Email" class="w-full mb-4 p-4 bg-black border border-white/10 rounded-xl text-white">
+    <textarea id="msg" placeholder="Dein Projekt..." class="w-full mb-4 p-4 bg-black border border-white/10 rounded-xl text-white"></textarea>
+    <button onclick="sendEmail()" class="bg-[#00f3ff] text-black px-10 py-4 rounded-xl">Absenden</button>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer class="py-12 text-center text-sm text-gray-500">
-  © 2026 CU VISUALS • cu.visuals@web.de
+  © 2026 CU VISUALS
 </footer>
-
-<!-- LIGHTBOX -->
-<div id="lightbox" onclick="closeLightbox()">
-  <img id="lightbox-img">
-</div>
 
 <script>
 const burger=document.getElementById('hamburger');
