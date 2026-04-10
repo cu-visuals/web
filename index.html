@@ -225,7 +225,13 @@ body {
   </div>
 </section>
 
-
+<!-- FOOTER -->
+<footer class="py-16 text-center border-t border-white/10 mt-20">
+  <div class="mb-4 neon-text text-lg font-semibold">CU VISUALS</div>
+  <p class="text-gray-500 text-sm mb-2">Cedric Unger • Foto & Videograf</p>
+  <p class="text-gray-500 text-sm mb-4">cu.visuals@web.de</p>
+  <p class="text-gray-600 text-xs">© 2026 CU VISUALS – Alle Rechte vorbehalten</p>
+</footer>
 
 <script>
 const burger=document.getElementById('hamburger');
@@ -284,7 +290,7 @@ window.addEventListener('scroll',()=>{
 <section class="py-20 text-center">
   <h2 class="text-4xl font-bold neon-text mb-6">Bereit, mehr Kunden zu gewinnen?</h2>
   <p class="text-gray-400 mb-8">Lass uns dein Projekt starten und deine Marke auf das nächste Level bringen.</p>
-  <a href="#kontakt" class="bg-[#00f3ff] text-black px-10 py-5 rounded-2xl font-semibold text-lg">Jetzt kostenlos anfragen</a>
+  <a href="#" onclick="openModal()" class="bg-[#00f3ff] text-black px-10 py-5 rounded-2xl font-semibold text-lg">Jetzt kostenlos anfragen</a>
 </section>
 
 
@@ -295,6 +301,35 @@ window.addEventListener('scroll',()=>{
   <p class="text-gray-500 text-sm mb-4">cu.visuals@web.de</p>
   <p class="text-gray-600 text-xs">© 2026 CU VISUALS – Alle Rechte vorbehalten</p>
 </footer>
+
+
+
+<!-- MODAL ANFRAGE -->
+<div id="modal" class="hidden fixed inset-0 bg-black/80 z-[9999] flex items-center justify-center p-4">
+  <div class="bg-black border border-white/10 rounded-2xl p-8 max-w-md w-full">
+    <h3 class="text-2xl neon-text mb-6 text-center">Anfrage senden</h3>
+    <input id="modal-name" placeholder="Name" class="w-full mb-4 p-3 bg-black border border-white/10 rounded-xl text-white">
+    <input id="modal-email" placeholder="Email" class="w-full mb-4 p-3 bg-black border border-white/10 rounded-xl text-white">
+    <textarea id="modal-msg" placeholder="Dein Projekt..." class="w-full mb-4 p-3 bg-black border border-white/10 rounded-xl text-white"></textarea>
+    <button onclick="sendModal()" class="w-full bg-[#00f3ff] text-black py-3 rounded-xl">Absenden</button>
+    <button onclick="closeModal()" class="w-full mt-3 text-gray-500">Schließen</button>
+  </div>
+</div>
+
+<script>
+function openModal(){
+  document.getElementById('modal').classList.remove('hidden');
+}
+function closeModal(){
+  document.getElementById('modal').classList.add('hidden');
+}
+function sendModal(){
+  const name=document.getElementById('modal-name').value;
+  const email=document.getElementById('modal-email').value;
+  const msg=document.getElementById('modal-msg').value;
+  window.location.href=`mailto:cu.visuals@web.de?subject=Anfrage ${name}&body=${msg}`;
+}
+</script>
 
 </body>
 </html>
