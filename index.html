@@ -216,13 +216,61 @@ body {
 
 
 
+<!-- FOOTER -->
+<footer class="py-16 text-center border-t border-white/10 mt-20 px-6">
+  <div class="neon-text text-lg font-semibold mb-2">CU VISUALS</div>
+  <p class="text-gray-500 text-sm mb-4">Cedric Unger • Foto & Videograf • cu.visuals@web.de</p>
 
+  <!-- IMPRESSUM TOGGLE BUTTON -->
+  <button onclick="toggleImpressum()" class="text-sm text-gray-400 hover:text-[#00f3ff]">
+    Impressum anzeigen
+  </button>
+
+  <!-- IMPRESSUM CONTENT (HIDDEN) -->
+  <div id="impressum" class="hidden max-w-3xl mx-auto mt-10 space-y-6">
+
+  <div class="bg-black border border-white/10 rounded-2xl p-6">
+    <h3 class="neon-text font-semibold mb-2">Verantwortlich für den Inhalt</h3>
+    <p class="text-gray-400 text-sm">
+      Verantwortlich für den Inhalt dieser Website ist Cedric Unger, Im Tiefen Brunnen 1, 78239 Rielasingen-Worblingen.
+    </p>
+  </div>
+
+  <div class="bg-black border border-white/10 rounded-2xl p-6">
+    <h3 class="neon-text font-semibold mb-2">Urheberrecht und Nutzungsrechte</h3>
+    <p class="text-gray-400 text-sm">
+      Alle auf dieser Website verwendeten Bilder, Fotografien, Grafiken und Inhalte wurden, sofern nicht anders gekennzeichnet, von Cedric Unger selbst erstellt.
+      Die Inhalte dieser Website unterliegen dem deutschen Urheberrecht. Eine Vervielfältigung, Bearbeitung, Verbreitung oder sonstige Verwertung außerhalb der Grenzen des Urheberrechtes bedarf der ausdrücklichen schriftlichen Zustimmung.
+    </p>
+  </div>
+
+  <div class="bg-black border border-white/10 rounded-2xl p-6">
+    <h3 class="neon-text font-semibold mb-2">Haftung für Inhalte</h3>
+    <p class="text-gray-400 text-sm">
+      Als Diensteanbieter bin ich gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.
+      Nach §§ 8 bis 10 TMG bin ich als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen.
+    </p>
+  </div>
+
+  <div class="bg-black border border-white/10 rounded-2xl p-6">
+    <h3 class="neon-text font-semibold mb-2">Kleinunternehmerhinweis</h3>
+    <p class="text-gray-400 text-sm">
+      Es handelt sich um ein Kleinunternehmen. Daher wird keine Umsatzsteuer ausgewiesen (§19 UStG).
+    </p>
+  </div>
+
+</div>
+
+  <p class="text-gray-600 text-xs mt-10">© 2026 CU VISUALS</p>
+</footer>
 
 <script>
 function toggleImpressum(){
   document.getElementById('impressum').classList.toggle('hidden');
 }
 </script>
+
+
 
 <script>
 const burger=document.getElementById('hamburger');
@@ -333,30 +381,6 @@ window.addEventListener('scroll',()=>{
   <p class="text-gray-600 text-xs mt-10">© 2026 CU VISUALS</p>
 </footer>
 
-  <!-- DATENSCHUTZ -->
-<section id="datenschutz" class="py-20 px-6 max-w-4xl mx-auto text-gray-400 text-sm">
-  <h2 class="text-2xl neon-text mb-6">Datenschutzerklärung</h2>
-
-  <p class="mb-4">
-    Die Nutzung dieser Website ist in der Regel ohne Angabe personenbezogener Daten möglich.
-    Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name oder E-Mail-Adressen)
-    erhoben werden, erfolgt dies stets auf freiwilliger Basis.
-  </p>
-
-  <p class="mb-4">
-    Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben.
-    Wir weisen darauf hin, dass die Datenübertragung im Internet Sicherheitslücken aufweisen kann.
-  </p>
-
-  <p class="mb-4">
-    Beim Versenden einer Anfrage per E-Mail werden die angegebenen Daten zur Bearbeitung der Anfrage gespeichert.
-  </p>
-
-  <p>
-    Verantwortlich: Cedric Unger, Im Tiefen Brunnen 1, 78239 Rielasingen-Worblingen
-  </p>
-</section>
-
 
 
 
@@ -385,6 +409,37 @@ function sendModal(){
   const msg=document.getElementById('modal-msg').value;
   window.location.href=`mailto:cu.visuals@web.de?subject=Anfrage ${name}&body=${msg}`;
 }
+</script>
+
+
+
+<!-- COOKIE / DATENSCHUTZ MODAL -->
+<div id="cookieModal" class="fixed inset-0 bg-black/80 flex items-center justify-center z-[99999]">
+  <div class="bg-black border border-white/10 rounded-2xl p-8 max-w-md w-full text-center">
+    <h3 class="neon-text text-xl font-semibold mb-4">Datenschutz</h3>
+    <p class="text-gray-400 text-sm mb-6">
+      Diese Website verwendet notwendige Funktionen, um korrekt zu funktionieren.
+      Mit Klick auf „Akzeptieren“ stimmst du der Nutzung zu.
+    </p>
+    <button onclick="acceptCookies()" class="bg-[#00f3ff] text-black px-6 py-3 rounded-xl font-semibold w-full">
+      Akzeptieren
+    </button>
+  </div>
+</div>
+
+<script>
+// COOKIE HANDLING
+function acceptCookies(){
+  localStorage.setItem('cookieAccepted', 'true');
+  document.getElementById('cookieModal').style.display='none';
+}
+
+// CHECK ON LOAD
+window.addEventListener('load', ()=>{
+  if(localStorage.getItem('cookieAccepted') === 'true'){
+    document.getElementById('cookieModal').style.display='none';
+  }
+});
 </script>
 
 </body>
