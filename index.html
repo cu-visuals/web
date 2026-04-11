@@ -217,14 +217,35 @@ body {
 
 
 
-
 <script>
 function toggleImpressum(){
   document.getElementById('impressum').classList.toggle('hidden');
 }
 </script>
 
+<!-- DATENSCHUTZ -->
+<section id="datenschutz" class="py-20 px-6 max-w-4xl mx-auto text-gray-400 text-sm">
+  <h2 class="text-2xl neon-text mb-6">Datenschutzerklärung</h2>
 
+  <p class="mb-4">
+    Die Nutzung dieser Website ist in der Regel ohne Angabe personenbezogener Daten möglich.
+    Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name oder E-Mail-Adressen)
+    erhoben werden, erfolgt dies stets auf freiwilliger Basis.
+  </p>
+
+  <p class="mb-4">
+    Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben.
+    Wir weisen darauf hin, dass die Datenübertragung im Internet Sicherheitslücken aufweisen kann.
+  </p>
+
+  <p class="mb-4">
+    Beim Versenden einer Anfrage per E-Mail werden die angegebenen Daten zur Bearbeitung der Anfrage gespeichert.
+  </p>
+
+  <p>
+    Verantwortlich: Cedric Unger, Im Tiefen Brunnen 1, 78239 Rielasingen-Worblingen
+  </p>
+</section>
 
 <script>
 const burger=document.getElementById('hamburger');
@@ -265,7 +286,7 @@ window.addEventListener('scroll',()=>{
 
 
 <!-- WHATSAPP FLOAT BUTTON -->
-<a href="https://wa.me/491704944793" target="_blank" class="fixed bottom-6 right-6 bg-[#00f3ff] text-black px-5 py-3 rounded-full shadow-lg font-semibold z-50">
+<a href="https://wa.me/491234567890" target="_blank" class="fixed bottom-6 right-6 bg-[#00f3ff] text-black px-5 py-3 rounded-full shadow-lg font-semibold z-50">
   WhatsApp
 </a>
 
@@ -287,7 +308,10 @@ window.addEventListener('scroll',()=>{
 </section>
 
 
-<!-- FOOTER -->
+
+
+      <!-- FOOTER -->
+  
 <footer class="py-16 text-center border-t border-white/10 mt-20 px-6">
   <div class="neon-text text-lg font-semibold mb-2">CU VISUALS</div>
   <p class="text-gray-500 text-sm mb-4">Cedric Unger • Foto & Videograf • cu.visuals@web.de</p>
@@ -336,8 +360,6 @@ window.addEventListener('scroll',()=>{
 </footer>
 
 
-
-
 <!-- MODAL ANFRAGE -->
 <div id="modal" class="hidden fixed inset-0 bg-black/80 z-[9999] flex items-center justify-center p-4">
   <div class="bg-black border border-white/10 rounded-2xl p-8 max-w-md w-full">
@@ -367,35 +389,98 @@ function sendModal(){
 
 
 
-<!-- COOKIE / DATENSCHUTZ MODAL -->
+<!-- COOKIE BANNER PRO -->
 <div id="cookieModal" class="fixed inset-0 bg-black/80 flex items-center justify-center z-[99999]">
-  <div class="bg-black border border-white/10 rounded-2xl p-8 max-w-md w-full text-center">
-    <h3 class="neon-text text-xl font-semibold mb-4">Datenschutz</h3>
-    <p class="text-gray-400 text-sm mb-6">
-      Diese Website verwendet notwendige Funktionen, um korrekt zu funktionieren.
-      Mit Klick auf „Akzeptieren“ stimmst du der Nutzung zu.
+  <div class="bg-black border border-white/10 rounded-2xl p-8 max-w-md w-full">
+    <h3 class="neon-text text-xl font-semibold mb-4 text-center">Datenschutzeinstellungen</h3>
+    
+    <p class="text-gray-400 text-sm mb-6 text-center">
+      Wir verwenden Cookies, um deine Erfahrung zu verbessern. Wähle deine Einstellungen.
     </p>
-    <button onclick="acceptCookies()" class="bg-[#00f3ff] text-black px-6 py-3 rounded-xl font-semibold w-full">
-      Akzeptieren
-    </button>
+
+    <div class="space-y-4 text-left mb-6">
+      <label class="flex items-center justify-between">
+        <span class="text-sm">Notwendig</span>
+        <input type="checkbox" checked disabled>
+      </label>
+
+      <label class="flex items-center justify-between">
+        <span class="text-sm">Statistik</span>
+        <input id="stats" type="checkbox">
+      </label>
+
+      <label class="flex items-center justify-between">
+        <span class="text-sm">Marketing</span>
+        <input id="marketing" type="checkbox">
+      </label>
+    </div>
+
+    <div class="flex flex-col gap-3">
+      <button onclick="acceptAll()" class="bg-[#00f3ff] text-black py-3 rounded-xl font-semibold">
+        Alle akzeptieren
+      </button>
+
+      <button onclick="saveSettings()" class="border border-white/10 py-3 rounded-xl text-gray-300">
+        Auswahl speichern
+      </button>
+    </div>
   </div>
 </div>
 
 <script>
-// COOKIE HANDLING
-function acceptCookies(){
-  localStorage.setItem('cookieAccepted', 'true');
+function acceptAll(){
+  localStorage.setItem('cookieAccepted', 'all');
   document.getElementById('cookieModal').style.display='none';
 }
 
-// CHECK ON LOAD
+function saveSettings(){
+  const stats=document.getElementById('stats').checked;
+  const marketing=document.getElementById('marketing').checked;
+
+  localStorage.setItem('cookieAccepted', 'custom');
+  localStorage.setItem('stats', stats);
+  localStorage.setItem('marketing', marketing);
+
+  document.getElementById('cookieModal').style.display='none';
+}
+
 window.addEventListener('load', ()=>{
-  if(localStorage.getItem('cookieAccepted') === 'true'){
+  if(localStorage.getItem('cookieAccepted')){
     document.getElementById('cookieModal').style.display='none';
   }
 });
-</script>
+// TRACKING LOGIC
+function loadTracking(){
+  const stats = localStorage.getItem('stats') === 'true';
+  const marketing = localStorage.getItem('marketing') === 'true';
 
+  // Google Analytics Beispiel
+  if(stats){
+    const ga = document.createElement('script');
+    ga.src = "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX";
+    ga.async = true;
+    document.head.appendChild(ga);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} 
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXX');
+  }
+
+  // Marketing Beispiel (Facebook Pixel Dummy)
+  if(marketing){
+    console.log("Marketing Tracking aktiv");
+  }
+}
+
+window.addEventListener('load', ()=>{
+  if(localStorage.getItem('cookieAccepted')){
+    document.getElementById('cookieModal').style.display='none';
+    loadTracking();
+  }
+});
+
+</script>
 </body>
 </html>
 
