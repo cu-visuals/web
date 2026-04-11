@@ -48,18 +48,44 @@ body {
 }
 
 .service-card{position:relative;transition:0.4s;cursor:pointer;background:#0a0a0a;border:1px solid rgba(255,255,255,0.1);overflow:hidden}
-.service-card img,
-.service-card video{
-  width:100%;
+
+  /* 🎬 VIDEO & IMAGE SYSTEM */
+.video-wrap{
+  position:relative;
   height:160px;
+  overflow:hidden;
+}
+
+.video-bg{
+  position:absolute;
+  inset:0;
+  filter:blur(40px);
+  transform:scale(1.3);
+  opacity:0.4;
+}
+
+.video-main{
+  position:relative;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  background:black;
+  transition:0.6s;
+}
+
+/* 📸 IMAGE FIX */
+.image-main{
+  width:100%;
+  height:100%;
   object-fit:cover;
   transition:0.6s;
 }
 
-/* 🔥 HOCHFORMAT VIDEO FIX */
-.service-card video{
-  object-fit:contain;
-  background:black;
+/* HOVER */
+.service-card:hover .video-main,
+.service-card:hover .image-main{
+  transform:scale(1.05);
+  filter:brightness(0.7);
 }
   
 .service-card:hover img, .service-card:hover video{transform:scale(1.15);filter:brightness(0.6)}
@@ -137,7 +163,10 @@ body {
   <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto px-6">
 
     <a href="hochzeiten.html" class="service-card rounded-2xl">
-      <video src="Timeline 1.mp4" autoplay muted loop></video>
+      <div class="video-wrap">
+<video class="video-bg" src="Timeline 1.mp4" muted loop></video>
+<video class="video-main" src="Timeline 1.mp4" muted loop></video>
+</div>
       <div class="service-overlay">
         <h3>Hochzeiten</h3>
         <span>Mehr ansehen</span>
@@ -149,7 +178,10 @@ body {
     </a>
 
     <a href="immobilien.html" class="service-card rounded-2xl">
-      <video src="Immobilie.mp4" autoplay muted loop></video>
+    <div class="video-wrap">
+  <video class="video-bg" src="Immobilie.mp4" muted loop></video>
+  <video class="video-main" src="Immobilie.mp4" muted loop></video>
+</div>
       <div class="service-overlay">
         <h3>Immobilien</h3>
         <span>Mehr ansehen</span>
@@ -161,7 +193,10 @@ body {
     </a>
 
     <a href="content.html" class="service-card rounded-2xl">
-      <video src="Content.mp4" autoplay muted loop></video>
+     <div class="video-wrap">
+<video class="video-bg" src="Content.mp4" muted loop></video>
+<video class="video-main" src="Content.mp4" muted loop></video>
+</div>
       <div class="service-overlay">
         <h3>Social Media</h3>
         <span>Mehr ansehen</span>
@@ -173,7 +208,9 @@ body {
     </a>
 
     <a href="shooting.html" class="service-card rounded-2xl">
-      <img src="IMG_0124.jpg">
+      <div class="video-wrap">
+  <img src="IMG_0124.jpg" class="image-main">
+</div>
       <div class="service-overlay">
         <h3>Shootings</h3>
         <span>Mehr ansehen</span>
@@ -568,6 +605,27 @@ document.addEventListener('touchend',e=>{
  let endX=e.changedTouches[0].clientX;
  if(startX-endX>50) nextSlide();
  if(endX-startX>50) prevSlide();
+});
+</script>
+
+<script>
+// 🎬 VIDEO PLAY CONTROL
+document.querySelectorAll('.video-main').forEach(video=>{
+
+  video.parentElement.addEventListener('mouseenter',()=>{
+    video.play();
+  });
+
+  video.parentElement.addEventListener('mouseleave',()=>{
+    video.pause();
+    video.currentTime = 0;
+  });
+
+  // 📱 MOBILE = autoplay
+  if(window.innerWidth < 768){
+    video.play();
+  }
+
 });
 </script>
 
