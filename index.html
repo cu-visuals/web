@@ -389,43 +389,75 @@ function sendModal(){
 
 
 
-<!-- COOKIE BANNER PRO -->
-<div id="cookieModal" class="fixed inset-0 bg-black/80 flex items-center justify-center z-[99999]">
-  <div class="bg-black border border-white/10 rounded-2xl p-8 max-w-md w-full">
-    <h3 class="neon-text text-xl font-semibold mb-4 text-center">Datenschutzeinstellungen</h3>
-    
-    <p class="text-gray-400 text-sm mb-6 text-center">
-      Wir verwenden Cookies, um deine Erfahrung zu verbessern. Wähle deine Einstellungen.
-    </p>
+<script>
 
-    <div class="space-y-4 text-left mb-6">
-      <label class="flex items-center justify-between">
-        <span class="text-sm">Notwendig</span>
-        <input type="checkbox" checked disabled>
-      </label>
+// ⏱️ 24 Stunden
+const COOKIE_EXPIRY = 86400000;
 
-      <label class="flex items-center justify-between">
-        <span class="text-sm">Statistik</span>
-        <input id="stats" type="checkbox">
-      </label>
+function acceptAll(){
+  localStorage.setItem('cookieTime', Date.now());
+  localStorage.setItem('stats', true);
+  localStorage.setItem('marketing', true);
 
-      <label class="flex items-center justify-between">
-        <span class="text-sm">Marketing</span>
-        <input id="marketing" type="checkbox">
-      </label>
-    </div>
+  closeCookie();
+  loadTracking();
+}
 
-    <div class="flex flex-col gap-3">
-      <button onclick="acceptAll()" class="bg-[#00f3ff] text-black py-3 rounded-xl font-semibold">
-        Alle akzeptieren
-      </button>
+function saveSettings(){
+  const stats = document.getElementById('stats').checked;
+  const marketing = document.getElementById('marketing').checked;
 
-      <button onclick="saveSettings()" class="border border-white/10 py-3 rounded-xl text-gray-300">
-        Auswahl speichern
-      </button>
-    </div>
-  </div>
-</div>
+  localStorage.setItem('cookieTime', Date.now());
+  localStorage.setItem('stats', stats);
+  localStorage.setItem('marketing', marketing);
+
+  closeCookie();
+  loadTracking();
+}
+
+function closeCookie(){
+  document.getElementById('cookieModal').style.display = 'none';
+}
+
+// 🚀 TRACKING
+function loadTracking(){
+  const stats = localStorage.getItem('stats') === 'true';
+  const marketing = localStorage.getItem('marketing') === 'true';
+
+  // Google Analytics
+  if(stats){
+    const ga = document.createElement('script');
+    ga.src = "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX";
+    ga.async = true;
+    document.head.appendChild(ga);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXX');
+  }
+
+  // Marketing (z.B. Meta Pixel später)
+  if(marketing){
+    console.log("Marketing Tracking aktiv");
+  }
+}
+
+// ✅ CHECK BEIM LADEN (24h RESET)
+window.addEventListener('load', () => {
+  const savedTime = localStorage.getItem('cookieTime');
+
+  if(savedTime){
+    const now = Date.now();
+
+    if(now - savedTime < COOKIE_EXPIRY){
+      document.getElementById('cookieModal').style.display = 'none';
+      loadTracking();
+    }
+  }
+});
+
+</script>
 
 <script>
 function acceptAll(){
