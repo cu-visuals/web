@@ -11,12 +11,18 @@
 body { background:#000; color:#fff; font-family:'Inter'; }
 .neon { color:#00f3ff; }
 
+/* VIDEO FIX */
+.video-wrap { position:absolute; inset:0; display:flex; justify-content:center; align-items:center; }
+.video-blur { position:absolute; width:200%; height:200%; object-fit:cover; filter:blur(60px) brightness(1.2); opacity:.4; }
+.video-main { height:100%; max-height:500px; object-fit:contain; opacity:.75; }
+
+/* Galerie */
 .gallery img {
   width:100%;
   height:250px;
   object-fit:cover;
   border-radius:16px;
-  transition:.4s;
+  transition:0.4s;
 }
 .gallery img:hover {
   transform:scale(1.05);
@@ -27,90 +33,77 @@ body { background:#000; color:#fff; font-family:'Inter'; }
 
 <body>
 
-<!-- NAV -->
-<nav class="p-6 flex justify-between border-b border-white/10">
-  <a href="index.html" class="neon font-bold text-xl">CU</a>
+<nav class="p-6 flex justify-between items-center border-b border-white/10">
+  <a href="index.html" class="neon text-xl font-bold">CU</a>
   <a href="index.html" class="text-gray-400">← Zurück</a>
 </nav>
 
-<!-- HERO -->
 <section class="relative py-32 overflow-hidden">
 
-<video autoplay muted loop playsinline
-class="absolute left-1/2 -translate-x-1/2 w-[1000px] md:w-[1400px] opacity-30 blur-[2px]">
-<source src="Content.mp4">
-</video>
+<div class="video-wrap">
+  <video autoplay muted loop class="video-blur">
+    <source src="Content.mp4">
+  </video>
 
-<div class="relative z-10 text-center max-w-3xl mx-auto px-6">
-<h1 class="text-5xl md:text-6xl font-bold neon">Social Media Content</h1>
+  <video autoplay muted loop class="video-main">
+    <source src="Content.mp4">
+  </video>
+</div>
+
+<div class="relative z-10 text-center max-w-3xl mx-auto px-6 mt-24">
+
+<h1 class="text-5xl md:text-6xl font-bold neon">
+Aufmerksamkeit ist die neue Währung
+</h1>
 
 <p class="mt-6 text-gray-300 text-lg">
-Content, der Aufmerksamkeit erzeugt, Vertrauen aufbaut und Kunden gewinnt.
+Content entscheidet, ob Kunden bleiben oder weiter scrollen.
 </p>
 
 <a href="index.html#kontakt"
 class="mt-10 inline-block bg-[#00f3ff] text-black px-8 py-4 rounded-xl font-semibold">
-Jetzt starten
+Mehr Reichweite starten
 </a>
+
 </div>
 
 </section>
 
-<!-- TEXT -->
 <section class="py-20 text-center max-w-3xl mx-auto px-6">
 <h2 class="text-3xl font-bold neon mb-6">
-Sichtbarkeit entscheidet über deinen Erfolg
+Content der verkauft
 </h2>
 
 <p class="text-gray-400">
-Auf Social Media gewinnt nicht der Beste – sondern der, der sichtbar ist.
-Ich helfe dir dabei, Content zu erstellen, der heraussticht und deine Zielgruppe erreicht.
+Nicht nur schön – sondern strategisch aufgebaut.
 </p>
 </section>
 
-<!-- BENEFITS -->
-<section class="py-20 max-w-5xl mx-auto grid md:grid-cols-3 gap-8 text-center px-6">
-<div>
-<h3 class="neon font-semibold mb-2">Mehr Reichweite</h3>
-<p class="text-gray-400 text-sm">Content, der auffällt und geteilt wird.</p>
-</div>
-
-<div>
-<h3 class="neon font-semibold mb-2">Mehr Kunden</h3>
-<p class="text-gray-400 text-sm">Gezielte Inhalte, die Vertrauen aufbauen.</p>
-</div>
-
-<div>
-<h3 class="neon font-semibold mb-2">Starke Marke</h3>
-<p class="text-gray-400 text-sm">Professioneller Auftritt hebt dich ab.</p>
-</div>
-</section>
-
-<!-- GALERIE -->
 <section class="py-20 max-w-6xl mx-auto px-6">
-<h2 class="text-3xl font-bold neon mb-10 text-center">Content Beispiele</h2>
-
 <div class="grid md:grid-cols-3 gap-6 gallery">
 <img src="content1.jpg">
 <img src="content2.jpg">
 <img src="content3.jpg">
-<img src="content4.jpg">
-<img src="content5.jpg">
-<img src="content6.jpg">
 </div>
 </section>
 
-<!-- CTA -->
 <section class="text-center py-20">
 <h2 class="text-3xl font-bold neon mb-6">
-Bereit, deine Marke sichtbar zu machen?
+Bereit für mehr Reichweite?
 </h2>
 
 <a href="index.html#kontakt"
 class="bg-[#00f3ff] text-black px-10 py-5 rounded-xl font-semibold">
-Jetzt kostenlos anfragen
+Jetzt starten
 </a>
 </section>
+
+<footer class="py-16 text-center border-t border-white/10">
+<div class="mb-4 neon text-lg font-semibold">CU VISUALS</div>
+<p class="text-gray-500 text-sm mb-2">Cedric Unger • Foto & Videograf</p>
+<p class="text-gray-500 text-sm mb-4">cu.visuals@web.de</p>
+<p class="text-gray-600 text-xs">© 2026 CU VISUALS</p>
+</footer>
 
 </body>
 </html>
