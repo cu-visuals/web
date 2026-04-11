@@ -8,90 +8,108 @@
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
-body{background:#000;color:#fff;font-family:'Inter'}
-.neon{color:#00f3ff}
+body { background:#000; color:#fff; font-family:'Inter'; }
+.neon { color:#00f3ff; }
 
-.video-container{
-  position:relative;
-  height:500px;
-  overflow:hidden;
-}
-
-.video-main{
-  position:absolute;
-  left:50%;
-  transform:translateX(-50%);
-  height:100%;
-  z-index:2;
-}
-
-.video-blur{
-  position:absolute;
-  inset:0;
-  filter:blur(60px);
-  opacity:0.4;
-  transform:scale(1.3);
-}
-
-.video-mirror-left,
-.video-mirror-right{
-  position:absolute;
-  top:0;
-  height:100%;
-  width:50%;
-  object-fit:cover;
-  opacity:0.25;
-  filter:blur(30px);
-}
-
-.video-mirror-left{
-  left:0;
-  transform:scaleX(-1);
-}
-
-.video-mirror-right{
-  right:0;
-}
-
-.gallery img{
+.gallery img {
   width:100%;
   height:250px;
   object-fit:cover;
   border-radius:16px;
+  transition:.4s;
+}
+.gallery img:hover {
+  transform:scale(1.05);
+  box-shadow:0 0 20px #00f3ff;
 }
 </style>
 </head>
 
 <body>
 
+<!-- NAV -->
 <nav class="p-6 flex justify-between border-b border-white/10">
-<a href="index.html" class="neon font-bold">CU</a>
-<a href="index.html">← Zurück</a>
+  <a href="index.html" class="neon font-bold text-xl">CU</a>
+  <a href="index.html" class="text-gray-400">← Zurück</a>
 </nav>
 
-<section class="video-container">
+<!-- HERO -->
+<section class="relative py-32 overflow-hidden">
 
-<video autoplay muted loop class="video-blur">
+<video autoplay muted loop playsinline
+class="absolute left-1/2 -translate-x-1/2 w-[1000px] md:w-[1400px] opacity-30 blur-[2px]">
 <source src="Content.mp4">
 </video>
 
-<video autoplay muted loop class="video-mirror-left">
-<source src="Content.mp4">
-</video>
+<div class="relative z-10 text-center max-w-3xl mx-auto px-6">
+<h1 class="text-5xl md:text-6xl font-bold neon">Social Media Content</h1>
 
-<video autoplay muted loop class="video-mirror-right">
-<source src="Content.mp4">
-</video>
+<p class="mt-6 text-gray-300 text-lg">
+Content, der Aufmerksamkeit erzeugt, Vertrauen aufbaut und Kunden gewinnt.
+</p>
 
-<video autoplay muted loop class="video-main">
-<source src="Content.mp4">
-</video>
+<a href="index.html#kontakt"
+class="mt-10 inline-block bg-[#00f3ff] text-black px-8 py-4 rounded-xl font-semibold">
+Jetzt starten
+</a>
+</div>
 
 </section>
 
+<!-- TEXT -->
+<section class="py-20 text-center max-w-3xl mx-auto px-6">
+<h2 class="text-3xl font-bold neon mb-6">
+Sichtbarkeit entscheidet über deinen Erfolg
+</h2>
+
+<p class="text-gray-400">
+Auf Social Media gewinnt nicht der Beste – sondern der, der sichtbar ist.
+Ich helfe dir dabei, Content zu erstellen, der heraussticht und deine Zielgruppe erreicht.
+</p>
+</section>
+
+<!-- BENEFITS -->
+<section class="py-20 max-w-5xl mx-auto grid md:grid-cols-3 gap-8 text-center px-6">
+<div>
+<h3 class="neon font-semibold mb-2">Mehr Reichweite</h3>
+<p class="text-gray-400 text-sm">Content, der auffällt und geteilt wird.</p>
+</div>
+
+<div>
+<h3 class="neon font-semibold mb-2">Mehr Kunden</h3>
+<p class="text-gray-400 text-sm">Gezielte Inhalte, die Vertrauen aufbauen.</p>
+</div>
+
+<div>
+<h3 class="neon font-semibold mb-2">Starke Marke</h3>
+<p class="text-gray-400 text-sm">Professioneller Auftritt hebt dich ab.</p>
+</div>
+</section>
+
+<!-- GALERIE -->
+<section class="py-20 max-w-6xl mx-auto px-6">
+<h2 class="text-3xl font-bold neon mb-10 text-center">Content Beispiele</h2>
+
+<div class="grid md:grid-cols-3 gap-6 gallery">
+<img src="content1.jpg">
+<img src="content2.jpg">
+<img src="content3.jpg">
+<img src="content4.jpg">
+<img src="content5.jpg">
+<img src="content6.jpg">
+</div>
+</section>
+
+<!-- CTA -->
 <section class="text-center py-20">
-<h1 class="text-5xl neon font-bold">Social Media</h1>
-<p class="text-gray-400 mt-4">Content der Reichweite bringt.</p>
+<h2 class="text-3xl font-bold neon mb-6">
+Bereit, deine Marke sichtbar zu machen?
+</h2>
+
+<a href="index.html#kontakt"
+class="bg-[#00f3ff] text-black px-10 py-5 rounded-xl font-semibold">
+Jetzt kostenlos anfragen
+</a>
 </section>
 
 </body>
