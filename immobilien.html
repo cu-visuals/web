@@ -8,50 +8,71 @@
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Space+Grotesk&display=swap');
+
 body{background:#000;color:#fff;font-family:'Inter'}
+.logo-font{font-family:'Space Grotesk'}
 .neon{color:#00f3ff}
 
 .video-wrap{position:absolute;inset:0;display:flex;justify-content:center;align-items:center}
 .video-blur{position:absolute;width:200%;height:200%;object-fit:cover;filter:blur(60px) brightness(1.2);opacity:.4}
-.video-main{height:100%;max-height:600px;object-fit:contain;opacity:.7}
-
-.fade-up{opacity:0;transform:translateY(60px);transition:1s}
-.fade-up.visible{opacity:1;transform:translateY(0)}
+.video-main{height:100%;max-height:600px;object-fit:contain;opacity:.8}
 </style>
 </head>
 
 <body>
 
 <nav class="p-6 flex justify-between border-b border-white/10">
-<a href="index.html" class="neon">CU</a>
+<a href="index.html" class="logo-font neon">CU</a>
 <a href="index.html">← Zurück</a>
 </nav>
 
 <section class="relative py-32 overflow-hidden">
 
 <div class="video-wrap">
-<video autoplay muted loop class="video-blur"><source src="Immobilie.mp4"></video>
-<video autoplay muted loop class="video-main"><source src="Immobilie.mp4"></video>
+<video autoplay muted loop class="video-blur">
+<source src="Immobilie.mp4">
+</video>
+
+<video autoplay muted loop class="video-main">
+<source src="Immobilie.mp4">
+</video>
 </div>
 
 <div class="relative z-10 text-center max-w-3xl mx-auto px-6">
-<h1 class="text-6xl neon fade-up">Deine Immobilie verdient Aufmerksamkeit</h1>
 
-<p class="fade-up mt-6 text-gray-300 text-lg">
-Hochwertiger Content sorgt für mehr Anfragen, bessere Käufer und schnellere Abschlüsse.
+<h1 class="logo-font text-6xl neon fade-up">
+Immobilien verkaufen sich über Emotionen
+</h1>
+
+<p class="mt-6 text-gray-300 fade-up">
+Käufer entscheiden in Sekunden – und genau dort musst du überzeugen.
 </p>
 
-<a href="index.html#kontakt" class="fade-up mt-10 inline-block bg-[#00f3ff] text-black px-8 py-4 rounded-xl font-semibold">
-Jetzt verkaufen optimieren
-</a>
-</div>
+<p class="mt-4 text-gray-500 fade-up">
+Mit hochwertigen Bildern und Videos steigern wir nicht nur die Aufmerksamkeit – sondern den wahrgenommenen Wert deiner Immobilie.
+</p>
 
+<a href="index.html#kontakt" class="mt-10 inline-block bg-[#00f3ff] text-black px-10 py-4 rounded-xl font-semibold fade-up">
+Mehr Anfragen erhalten
+</a>
+
+</div>
 </section>
 
-<footer class="py-16 text-center border-t border-white/10">
+<section class="py-20 max-w-6xl mx-auto px-6">
+<div class="grid md:grid-cols-4 gap-6 gallery">
+<div>Objekt 1</div>
+<div>Objekt 2</div>
+<div>Objekt 3</div>
+<div>Objekt 4</div>
+</div>
+</section>
+
+  <footer class="py-16 text-center border-t border-white/10">
 <button onclick="toggleImpressum()">Impressum</button>
 <div id="impressum" class="hidden mt-6 text-gray-400 text-sm">
-Cedric Unger • Kontakt siehe Hauptseite
+Cedric Unger • cu.visuals@web.de
 </div>
 </footer>
 
