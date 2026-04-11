@@ -16,9 +16,8 @@ body { background:#000; color:#fff; font-family:'Inter'; }
   height:250px;
   object-fit:cover;
   border-radius:16px;
-  transition:.4s;
+  transition:0.4s;
 }
-
 .gallery img:hover {
   transform:scale(1.05);
   box-shadow:0 0 20px #00f3ff;
@@ -28,90 +27,63 @@ body { background:#000; color:#fff; font-family:'Inter'; }
 
 <body>
 
-<!-- NAV -->
-<nav class="p-6 flex justify-between border-b border-white/10">
-  <a href="index.html" class="neon font-bold text-xl">CU</a>
-  <a href="index.html" class="text-gray-400">← Zurück</a>
+<nav class="p-6 flex justify-between items-center border-b border-white/10">
+<a href="index.html" class="neon text-xl font-bold">CU</a>
+<a href="index.html" class="text-gray-400">← Zurück</a>
 </nav>
 
-<!-- HERO -->
-<section class="relative py-32 overflow-hidden">
+<section class="py-32 text-center max-w-3xl mx-auto px-6 mt-24">
 
-<video autoplay muted loop playsinline
-class="absolute left-1/2 -translate-x-1/2 w-[1000px] md:w-[1400px] opacity-30 blur-[2px]">
-<source src="shooting.mp4">
-</video>
-
-<div class="relative z-10 text-center max-w-3xl mx-auto px-6">
-<h1 class="text-5xl md:text-6xl font-bold neon">Shootings</h1>
+<h1 class="text-5xl md:text-6xl font-bold neon">
+Dein Auftritt entscheidet
+</h1>
 
 <p class="mt-6 text-gray-300 text-lg">
-Individuelle Shootings, die dich perfekt in Szene setzen – professionell, authentisch und hochwertig.
+Deine Bilder sind dein erster Eindruck – und genau der zählt.
 </p>
 
 <a href="index.html#kontakt"
 class="mt-10 inline-block bg-[#00f3ff] text-black px-8 py-4 rounded-xl font-semibold">
-Jetzt Shooting anfragen
+Jetzt Shooting buchen
 </a>
-</div>
 
 </section>
 
-<!-- VERKAUFSTEXT -->
 <section class="py-20 text-center max-w-3xl mx-auto px-6">
 <h2 class="text-3xl font-bold neon mb-6">
-Dein Auftritt entscheidet über den ersten Eindruck
+Premium Bilder = Mehr Wirkung
 </h2>
 
 <p class="text-gray-400">
-Ob für Social Media, Business oder privat – hochwertige Bilder sorgen dafür,
-dass du professionell wahrgenommen wirst und aus der Masse herausstichst.
+Professionelle Bilder machen den Unterschied.
 </p>
 </section>
 
-<!-- BENEFITS -->
-<section class="py-20 max-w-5xl mx-auto grid md:grid-cols-3 gap-8 text-center px-6">
-<div>
-<h3 class="neon font-semibold mb-2">Professioneller Look</h3>
-<p class="text-gray-400 text-sm">Hochwertige Bilder, die dich stark präsentieren.</p>
-</div>
-
-<div>
-<h3 class="neon font-semibold mb-2">Selbstbewusst auftreten</h3>
-<p class="text-gray-400 text-sm">Bilder, die Wirkung zeigen und Vertrauen schaffen.</p>
-</div>
-
-<div>
-<h3 class="neon font-semibold mb-2">Individuell & persönlich</h3>
-<p class="text-gray-400 text-sm">Shootings abgestimmt auf dich und deine Ziele.</p>
-</div>
-</section>
-
-<!-- GALERIE -->
 <section class="py-20 max-w-6xl mx-auto px-6">
-<h2 class="text-3xl font-bold neon mb-10 text-center">Ergebnisse</h2>
-
 <div class="grid md:grid-cols-3 gap-6 gallery">
-<img src="shoot1.jpg">
-<img src="shoot2.jpg">
-<img src="shoot3.jpg">
-<img src="shoot4.jpg">
-<img src="shoot5.jpg">
-<img src="shoot6.jpg">
+<img src="shooting1.jpg">
+<img src="shooting2.jpg">
+<img src="shooting3.jpg">
 </div>
 </section>
 
-<!-- CTA -->
 <section class="text-center py-20">
 <h2 class="text-3xl font-bold neon mb-6">
-Bereit für dein persönliches Shooting?
+Bereit für dein Shooting?
 </h2>
 
 <a href="index.html#kontakt"
 class="bg-[#00f3ff] text-black px-10 py-5 rounded-xl font-semibold">
-Jetzt kostenlos anfragen
+Jetzt anfragen
 </a>
 </section>
+
+<footer class="py-16 text-center border-t border-white/10">
+<div class="mb-4 neon text-lg font-semibold">CU VISUALS</div>
+<p class="text-gray-500 text-sm mb-2">Cedric Unger • Foto & Videograf</p>
+<p class="text-gray-500 text-sm mb-4">cu.visuals@web.de</p>
+<p class="text-gray-600 text-xs">© 2026 CU VISUALS</p>
+</footer>
 
 </body>
 </html>
