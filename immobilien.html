@@ -8,109 +8,58 @@
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
-body { background:#000; color:#fff; font-family:'Inter'; }
-.neon { color:#00f3ff; }
+body{background:#000;color:#fff;font-family:'Inter'}
+.neon{color:#00f3ff}
 
-.gallery img {
-  width:100%;
-  height:250px;
-  object-fit:cover;
-  border-radius:16px;
-  transition:.4s;
-}
-.gallery img:hover {
-  transform:scale(1.05);
-  box-shadow:0 0 20px #00f3ff;
-}
+.video-wrap{position:absolute;inset:0;display:flex;justify-content:center;align-items:center}
+.video-blur{position:absolute;width:200%;height:200%;object-fit:cover;filter:blur(60px) brightness(1.2);opacity:.4}
+.video-main{height:100%;max-height:600px;object-fit:contain;opacity:.7}
+
+.fade-up{opacity:0;transform:translateY(60px);transition:1s}
+.fade-up.visible{opacity:1;transform:translateY(0)}
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
 <nav class="p-6 flex justify-between border-b border-white/10">
-  <a href="index.html" class="neon font-bold text-xl">CU</a>
-  <a href="index.html" class="text-gray-400">← Zurück</a>
+<a href="index.html" class="neon">CU</a>
+<a href="index.html">← Zurück</a>
 </nav>
 
-<!-- HERO -->
 <section class="relative py-32 overflow-hidden">
 
-<video autoplay muted loop playsinline
-class="absolute left-1/2 -translate-x-1/2 w-[1000px] md:w-[1400px] opacity-30 blur-[2px]">
-<source src="Immobilie.mp4">
-</video>
+<div class="video-wrap">
+<video autoplay muted loop class="video-blur"><source src="Immobilie.mp4"></video>
+<video autoplay muted loop class="video-main"><source src="Immobilie.mp4"></video>
+</div>
 
 <div class="relative z-10 text-center max-w-3xl mx-auto px-6">
-<h1 class="text-5xl md:text-6xl font-bold neon">Immobilien Content</h1>
+<h1 class="text-6xl neon fade-up">Deine Immobilie verdient Aufmerksamkeit</h1>
 
-<p class="mt-6 text-gray-300 text-lg">
-Hochwertige Fotos & Videos, die Immobilien schneller verkaufen und mehr Aufmerksamkeit generieren.
+<p class="fade-up mt-6 text-gray-300 text-lg">
+Hochwertiger Content sorgt für mehr Anfragen, bessere Käufer und schnellere Abschlüsse.
 </p>
 
-<a href="index.html#kontakt"
-class="mt-10 inline-block bg-[#00f3ff] text-black px-8 py-4 rounded-xl font-semibold">
-Jetzt Projekt anfragen
+<a href="index.html#kontakt" class="fade-up mt-10 inline-block bg-[#00f3ff] text-black px-8 py-4 rounded-xl font-semibold">
+Jetzt verkaufen optimieren
 </a>
 </div>
 
 </section>
 
-<!-- VERKAUFSTEXT -->
-<section class="py-20 text-center max-w-3xl mx-auto px-6">
-<h2 class="text-3xl font-bold neon mb-6">
-Der erste Eindruck verkauft die Immobilie
-</h2>
-
-<p class="text-gray-400">
-Potenzielle Käufer entscheiden innerhalb von Sekunden, ob eine Immobilie interessant ist oder nicht.
-Mit professionellem Content hebst du dich klar von der Konkurrenz ab und erzielst bessere Ergebnisse.
-</p>
-</section>
-
-<!-- BENEFITS -->
-<section class="py-20 max-w-5xl mx-auto grid md:grid-cols-3 gap-8 text-center px-6">
-<div>
-<h3 class="neon font-semibold mb-2">Mehr Aufmerksamkeit</h3>
-<p class="text-gray-400 text-sm">Hochwertige Visuals ziehen mehr Interessenten an.</p>
+<footer class="py-16 text-center border-t border-white/10">
+<button onclick="toggleImpressum()">Impressum</button>
+<div id="impressum" class="hidden mt-6 text-gray-400 text-sm">
+Cedric Unger • Kontakt siehe Hauptseite
 </div>
+</footer>
 
-<div>
-<h3 class="neon font-semibold mb-2">Schneller Verkauf</h3>
-<p class="text-gray-400 text-sm">Bessere Präsentation = kürzere Vermarktungszeit.</p>
-</div>
-
-<div>
-<h3 class="neon font-semibold mb-2">Höherer Preis</h3>
-<p class="text-gray-400 text-sm">Professioneller Look steigert den wahrgenommenen Wert.</p>
-</div>
-</section>
-
-<!-- GALERIE -->
-<section class="py-20 max-w-6xl mx-auto px-6">
-<h2 class="text-3xl font-bold neon mb-10 text-center">Referenzen</h2>
-
-<div class="grid md:grid-cols-3 gap-6 gallery">
-<img src="immo1.jpg">
-<img src="immo2.jpg">
-<img src="immo3.jpg">
-<img src="immo4.jpg">
-<img src="immo5.jpg">
-<img src="immo6.jpg">
-</div>
-</section>
-
-<!-- CTA -->
-<section class="text-center py-20">
-<h2 class="text-3xl font-bold neon mb-6">
-Bereit, deine Immobilie optimal zu präsentieren?
-</h2>
-
-<a href="index.html#kontakt"
-class="bg-[#00f3ff] text-black px-10 py-5 rounded-xl font-semibold">
-Jetzt kostenlos anfragen
-</a>
-</section>
+<script>
+const obs=new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&x.target.classList.add('visible')));
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+function toggleImpressum(){impressum.classList.toggle('hidden')}
+</script>
 
 </body>
 </html>
