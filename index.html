@@ -109,6 +109,114 @@ body {
 
 .neon-text{color:#00f3ff;}
 
+  /* ===== GLOBAL UPGRADE ===== */
+body {
+  background: radial-gradient(circle at top, #0a0a0a, #000);
+}
+
+/* ===== GLASS EFFECT ===== */
+.glass {
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+}
+
+/* ===== NEON GLOW TEXT ===== */
+.neon {
+  color:#00f3ff;
+  text-shadow:
+    0 0 10px rgba(0,243,255,0.6),
+    0 0 20px rgba(0,243,255,0.4),
+    0 0 40px rgba(0,243,255,0.2);
+}
+
+/* ===== BUTTON UPGRADE ===== */
+.btn-premium {
+  background: linear-gradient(135deg,#00f3ff,#0284c8);
+  color:#000;
+  font-weight:600;
+  padding:14px 28px;
+  border-radius:14px;
+  transition:0.4s;
+  box-shadow: 0 0 20px rgba(0,243,255,0.3);
+}
+
+.btn-premium:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 0 40px rgba(0,243,255,0.6);
+}
+
+/* ===== IMAGE HOVER (APPLE STYLE) ===== */
+.gallery img {
+  transition: all 0.5s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.08) rotate(0.5deg);
+  box-shadow: 0 20px 60px rgba(0,243,255,0.3);
+}
+
+/* ===== SMOOTH FADE IN ===== */
+.fade-up {
+  opacity:0;
+  transform:translateY(40px);
+  transition: all 1s ease;
+}
+
+.fade-up.visible {
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ===== SECTION SPACING LUXURY ===== */
+section {
+  position: relative;
+}
+
+/* ===== SOFT DIVIDER LINE ===== */
+section::after {
+  content:"";
+  display:block;
+  width:60%;
+  height:1px;
+  background:linear-gradient(to right,transparent,#00f3ff33,transparent);
+  margin:80px auto 0;
+}
+
+/* ===== NAV PREMIUM ===== */
+nav {
+  backdrop-filter: blur(12px);
+  background: rgba(0,0,0,0.6);
+}
+
+/* ===== HERO DARK OVERLAY ===== */
+.hero-overlay {
+  position:absolute;
+  inset:0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.3),
+    rgba(0,0,0,0.7)
+  );
+}
+
+/* ===== VIDEO IMPROVEMENT ===== */
+video {
+  filter: brightness(0.85) contrast(1.1);
+}
+
+/* ===== MICRO ANIMATION ===== */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+.float {
+  animation: float 4s ease-in-out infinite;
+}
+
 </style>
 </head>
 
