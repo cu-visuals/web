@@ -550,41 +550,22 @@ function sendModal(){
 
 
 <script>
-
-// ⏱️ 24 Stunden
-const COOKIE_EXPIRY = 86400000;
-
 function acceptAll(){
-  localStorage.setItem('cookieTime', Date.now());
-  localStorage.setItem('stats', true);
-  localStorage.setItem('marketing', true);
-
-  closeCookie();
-  loadTracking();
+  document.getElementById('cookieModal').style.display = 'none';
+  loadTracking(true, true);
 }
 
 function saveSettings(){
   const stats = document.getElementById('stats').checked;
   const marketing = document.getElementById('marketing').checked;
 
-  localStorage.setItem('cookieTime', Date.now());
-  localStorage.setItem('stats', stats);
-  localStorage.setItem('marketing', marketing);
-
-  closeCookie();
-  loadTracking();
-}
-
-function closeCookie(){
   document.getElementById('cookieModal').style.display = 'none';
+  loadTracking(stats, marketing);
 }
 
-// 🚀 TRACKING
-function loadTracking(){
-  const stats = localStorage.getItem('stats') === 'true';
-  const marketing = localStorage.getItem('marketing') === 'true';
+// 🚀 TRACKING DIREKT (ohne Speicherung)
+function loadTracking(stats, marketing){
 
-  // Google Analytics
   if(stats){
     const ga = document.createElement('script');
     ga.src = "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX";
@@ -597,26 +578,15 @@ function loadTracking(){
     gtag('config', 'G-XXXXXXX');
   }
 
-  // Marketing (z.B. Meta Pixel später)
   if(marketing){
     console.log("Marketing Tracking aktiv");
   }
 }
 
-// ✅ CHECK BEIM LADEN (24h RESET)
+// ❗ IMMER ANZEIGEN BEIM LADEN
 window.addEventListener('load', () => {
-  const savedTime = localStorage.getItem('cookieTime');
-
-  if(savedTime){
-    const now = Date.now();
-
-    if(now - savedTime < COOKIE_EXPIRY){
-      document.getElementById('cookieModal').style.display = 'none';
-      loadTracking();
-    }
-  }
+  document.getElementById('cookieModal').style.display = 'flex';
 });
-
 </script>
 
 <script>
