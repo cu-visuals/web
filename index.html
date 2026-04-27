@@ -550,22 +550,41 @@ function sendModal(){
 
 
 <script>
+
+// ⏱️ 24 Stunden
+const COOKIE_EXPIRY = 86400000;
+
 function acceptAll(){
-  document.getElementById('cookieModal').style.display = 'none';
-  loadTracking(true, true);
+  localStorage.setItem('cookieTime', Date.now());
+  localStorage.setItem('stats', true);
+  localStorage.setItem('marketing', true);
+
+  closeCookie();
+  loadTracking();
 }
 
 function saveSettings(){
   const stats = document.getElementById('stats').checked;
   const marketing = document.getElementById('marketing').checked;
 
-  document.getElementById('cookieModal').style.display = 'none';
-  loadTracking(stats, marketing);
+  localStorage.setItem('cookieTime', Date.now());
+  localStorage.setItem('stats', stats);
+  localStorage.setItem('marketing', marketing);
+
+  closeCookie();
+  loadTracking();
 }
 
-// 🚀 TRACKING DIREKT (ohne Speicherung)
-function loadTracking(stats, marketing){
+function closeCookie(){
+  document.getElementById('cookieModal').style.display = 'none';
+}
 
+// 🚀 TRACKING
+function loadTracking(){
+  const stats = localStorage.getItem('stats') === 'true';
+  const marketing = localStorage.getItem('marketing') === 'true';
+
+  // Google Analytics
   if(stats){
     const ga = document.createElement('script');
     ga.src = "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX";
@@ -578,18 +597,28 @@ function loadTracking(stats, marketing){
     gtag('config', 'G-XXXXXXX');
   }
 
+  // Marketing (z.B. Meta Pixel später)
   if(marketing){
     console.log("Marketing Tracking aktiv");
   }
 }
 
-// ❗ IMMER ANZEIGEN BEIM LADEN
+// ✅ CHECK BEIM LADEN (24h RESET)
 window.addEventListener('load', () => {
-  document.getElementById('cookieModal').style.display = 'flex';
-});
-</script>
+  const savedTime = localStorage.getItem('cookieTime');
 
-<script>
+  if(savedTime){
+    const now = Date.now();
+
+    if(now - savedTime < COOKIE_EXPIRY){
+      document.getElementById('cookieModal').style.display = 'none';
+      loadTracking();
+    }
+  }
+});
+
+</script>
+  
 function acceptAll(){
   localStorage.setItem('cookieAccepted', 'all');
   document.getElementById('cookieModal').style.display='none';
