@@ -8,9 +8,17 @@
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
-body { background:#000; color:#fff; font-family:'Inter'; }
-.neon { color:#00f3ff; }
+body {
+  background:#000;
+  color:#fff;
+  font-family: 'Inter', sans-serif;
+}
 
+.neon {
+  color:#00f3ff;
+}
+
+/* Galerie */
 .gallery img {
   width:100%;
   height:250px;
@@ -18,6 +26,7 @@ body { background:#000; color:#fff; font-family:'Inter'; }
   border-radius:16px;
   transition:0.4s;
 }
+
 .gallery img:hover {
   transform:scale(1.05);
   box-shadow:0 0 20px #00f3ff;
@@ -27,62 +36,84 @@ body { background:#000; color:#fff; font-family:'Inter'; }
 
 <body>
 
+<!-- NAV -->
 <nav class="p-6 flex justify-between items-center border-b border-white/10">
-<a href="index.html" class="neon text-xl font-bold">CU</a>
-<a href="index.html" class="text-gray-400">← Zurück</a>
+  <a href="index.html" class="neon text-xl font-bold">CU</a>
+  <a href="index.html" class="text-gray-400">← Zurück</a>
 </nav>
 
-<section class="py-32 text-center max-w-3xl mx-auto px-6 mt-24">
+<!-- HERO -->
+<section class="relative py-32 overflow-hidden">
 
-<h1 class="text-5xl md:text-6xl font-bold neon">
-Dein Auftritt entscheidet
-</h1>
+  <!-- (Optional: leichtes Background Bild statt Video für Shootings) -->
+  <img src="shooting-hero.jpg"
+       class="absolute left-1/2 -translate-x-1/2 
+              w-[900px] md:w-[1400px]
+              top-[-20px] md:top-[-80px]
+              opacity-30 blur-[2px] object-cover">
 
-<p class="mt-6 text-gray-300 text-lg">
-Deine Bilder sind dein erster Eindruck – und genau der zählt.
-</p>
+  <!-- CONTENT -->
+  <div class="relative z-10 text-center max-w-3xl mx-auto px-6">
+    <h1 class="text-5xl md:text-6xl font-bold neon">
+      Shootings
+    </h1>
+    
+    <p class="mt-6 text-gray-300 text-lg">
+      Bilder, die dich und deine Marke perfekt präsentieren.
+    </p>
 
-<a href="index.html#kontakt"
-class="mt-10 inline-block bg-[#00f3ff] text-black px-8 py-4 rounded-xl font-semibold">
-Jetzt Shooting buchen
-</a>
+    <a href="index.html#kontakt"
+       class="mt-10 inline-block bg-[#00f3ff] text-black px-8 py-4 rounded-xl font-semibold">
+      Jetzt anfragen
+    </a>
+  </div>
 
 </section>
 
+<!-- TEXT -->
 <section class="py-20 text-center max-w-3xl mx-auto px-6">
-<h2 class="text-3xl font-bold neon mb-6">
-Premium Bilder = Mehr Wirkung
-</h2>
+  <h2 class="text-3xl font-bold neon mb-6">
+    Dein Auftritt entscheidet
+  </h2>
 
-<p class="text-gray-400">
-Professionelle Bilder machen den Unterschied.
-</p>
+  <p class="text-gray-400">
+    Ob Personal Branding oder Business – starke Bilder sorgen dafür,
+    dass du professionell wahrgenommen wirst und Vertrauen aufbaust.
+  </p>
 </section>
 
+<!-- GALERIE -->
 <section class="py-20 max-w-6xl mx-auto px-6">
-<div class="grid md:grid-cols-3 gap-6 gallery">
-<img src="shooting1.jpg">
-<img src="shooting2.jpg">
-<img src="shooting3.jpg">
-</div>
+  <h2 class="text-3xl font-bold neon mb-10 text-center">Einblicke</h2>
+
+  <div class="grid md:grid-cols-3 gap-6 gallery">
+    <img src="shooting1.jpg">
+    <img src="shooting2.jpg">
+    <img src="shooting3.jpg">
+    <img src="shooting4.jpg">
+    <img src="shooting5.jpg">
+    <img src="shooting6.jpg">
+  </div>
 </section>
 
+<!-- CTA -->
 <section class="text-center py-20">
-<h2 class="text-3xl font-bold neon mb-6">
-Bereit für dein Shooting?
-</h2>
+  <h2 class="text-3xl font-bold neon mb-6">
+    Bereit für dein Shooting?
+  </h2>
 
-<a href="index.html#kontakt"
-class="bg-[#00f3ff] text-black px-10 py-5 rounded-xl font-semibold">
-Jetzt anfragen
-</a>
+  <a href="index.html#kontakt"
+     class="bg-[#00f3ff] text-black px-10 py-5 rounded-xl font-semibold">
+    Jetzt kostenlos anfragen
+  </a>
 </section>
 
+<!-- FOOTER -->
 <footer class="py-16 text-center border-t border-white/10">
-<div class="mb-4 neon text-lg font-semibold">CU VISUALS</div>
-<p class="text-gray-500 text-sm mb-2">Cedric Unger • Foto & Videograf</p>
-<p class="text-gray-500 text-sm mb-4">cu.visuals@web.de</p>
-<p class="text-gray-600 text-xs">© 2026 CU VISUALS</p>
+  <div class="mb-4 neon text-lg font-semibold">CU VISUALS</div>
+  <p class="text-gray-500 text-sm mb-2">Cedric Unger • Foto & Videograf</p>
+  <p class="text-gray-500 text-sm mb-4">cu.visuals@web.de</p>
+  <p class="text-gray-600 text-xs">© 2026 CU VISUALS</p>
 </footer>
 
 </body>
